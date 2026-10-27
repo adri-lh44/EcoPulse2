@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>EcoPulse - Planetary Stewardship Platform</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-fixed-variant": "#005236", "background": "#0c1420", "on-tertiary": "#472a00", "tertiary": "#ffb95f", "primary-fixed": "#6ffbbe", "surface-tint": "#4edea3", "on-surface": "#dbe3f4", "inverse-on-surface": "#29313e", "surface-container-high": "#232a37", "secondary": "#45dfa4", "on-secondary-fixed": "#002114", "error-container": "#93000a", "on-surface-variant": "#bbcabf", "on-primary-container": "#00422b", "primary": "#4edea3", "on-secondary": "#003824", "tertiary-fixed": "#ffddb8", "secondary-container": "#00bd85", "on-primary": "#003824", "on-tertiary-container": "#523200", "surface-dim": "#0c1420", "secondary-fixed": "#68fcbf", "error": "#ffb4ab", "surface-container-lowest": "#070e1a", "surface-container-low": "#141c28", "on-tertiary-fixed-variant": "#653e00", "secondary-fixed-dim": "#45dfa4", "inverse-primary": "#006c49", "tertiary-container": "#e29100", "on-secondary-fixed-variant": "#005137", "on-background": "#dbe3f4", "on-secondary-container": "#00452e", "tertiary-fixed-dim": "#ffb95f", "outline-variant": "#3c4a42", "outline": "#86948a", "on-primary-fixed": "#002113", "on-error-container": "#ffdad6", "primary-container": "#10b981", "surface": "#0c1420", "on-error": "#690005", "inverse-surface": "#dbe3f4", "surface-container-highest": "#2d3542", "on-tertiary-fixed": "#2a1700", "surface-bright": "#323947", "surface-variant": "#2d3542", "surface-container": "#18202c", "primary-fixed-dim": "#4edea3" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "margin-mobile": "1.25rem", "space-xl": "2.5rem", "margin": "3rem", "gutter": "1.5rem", "gutter-mobile": "1rem", "space-lg": "1.5rem", "space-md": "1rem", "space-sm": "0.5rem" }, "fontFamily": { "headline-md": ["Outfit"], "body-lg": ["Plus Jakarta Sans"], "display-hero-mobile": ["Outfit"], "body-md": ["Plus Jakarta Sans"], "label-hud": ["Space Grotesk"], "headline-sm": ["Outfit"], "headline-lg": ["Outfit"], "display-hero": ["Outfit"], "label-hud-micro": ["Space Grotesk"], "headline-lg-mobile": ["Outfit"], "metric-numeral": ["Outfit"], "body-sm": ["Plus Jakarta Sans"] }, "fontSize": { "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }], "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "label-hud": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }], "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "label-hud-micro": ["10px", { "lineHeight": "14px", "letterSpacing": "0.12em", "fontWeight": "700" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "metric-numeral": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400" }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-20 w-full px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg flex-shrink-0"><div class="flex items-center gap-space-sm"><img alt="EcoPulse Master Emblem" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XshwQcJAVyaASIBMiQKhwkajiazM4RhzT1EkIVSy-YJqZ96fAu_lHaebrmITxSeVRi2PfR7R5EL1N0Mr-c7EcWvwMxXEcPbkDFie5p3XPqCVzHnFvH36Wdj-OGLQM1evwrClSjvbGVV5AYze7-R0Kym_4_wgKquvStyWm5Gxx28rijkPH8iyHLumvl_3BDgYrDxW-005iJMspVjP1mp01zWlvWYLLQrr8vaXl3FJSK8rhbTpkLTcZp2Bk"/><span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">EcoPulse</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container-high shadow-[0_0_12px_rgba(16,185,129,0.2)]"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-label-hud-micro text-label-hud-micro uppercase text-primary font-bold tracking-wider">IDCC 2026 Edition</span></div></div><nav class="hidden lg:flex items-center gap-space-xs p-1 bg-surface-container-low/80 backdrop-blur-md rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(16,185,129,0.35)]"><a class="px-space-md py-space-xs rounded-full font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="dashboard" href="#">Dashboard</a><a class="px-space-md py-space-xs rounded-full font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="eco-tracker" href="#">Eco-Tracker &amp; Footprint</a><a class="px-space-md py-space-xs rounded-full font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="recycle-rush" href="#">Recycle Rush</a><a class="px-space-md py-space-xs rounded-full font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="heritage-trail" href="#">Heritage &amp; Eco-Trail</a><a aria-current="page" class="px-space-md py-space-xs rounded-full transition-all bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(16,185,129,0.35)]" data-path="focus-timer" href="#">Focus &amp; Productivity</a></nav><div class="flex items-center gap-space-md flex-shrink-0"><div class="hidden 2xl:flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-high/70 backdrop-blur-md"><div class="flex flex-col"><div class="flex items-center justify-between gap-space-sm"><span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Lvl 14 Ranger</span><span class="font-label-hud text-label-hud text-primary font-bold">2,840 XP</span></div><div class="w-28 h-1.5 rounded-full bg-surface-container-highest overflow-hidden mt-0.5"><div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full w-3/4 shadow-[0_0_8px_rgba(78,222,163,0.5)]"></div></div></div></div><button aria-label="Toggle theme" class="w-10 h-10 rounded-full bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">wb_sunny</span></button><button aria-label="Notifications" class="relative w-10 h-10 rounded-full bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary ring-2 ring-surface shadow-[0_0_6px_rgba(78,222,163,0.8)]"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="relative flex-shrink-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-primary/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV0iYBq6XXo3W7B6ZmpZ5qJ_wNddNqFe4ePw-9TdGLXdsrXdNgKoKKpXWN1mPTqEmoZnO8PTUjeqv4uBlB2sq6i7Gkg-wQdq680sjxqnLyeXJJsso-Rq7RRUOtpW2KZLLTmdyJ9_3J-Ru7kvJMjMZ0wkfnl6laORzekWINaDHNMqEzcJzG5To3H-rR5AG_SXkDqzcIDQ2wndkgmkM-Ao-bPLGa2OFYcpniziS9NhLkxy__BKdSJ6gu"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface"></span></div><div class="hidden md:flex flex-col text-left"><span class="font-body-sm text-body-sm font-semibold text-on-surface leading-none">Dr. Maya Lin</span><span class="font-label-hud-micro text-label-hud-micro text-secondary font-medium tracking-wide mt-0.5">Eco-Active</span></div></div></div></div></header><main class="w-full pt-20 bg-background flex-1"><div class="flex flex-col w-full">
+<div class="relative w-full overflow-hidden px-margin-mobile md:px-margin py-space-xl">
+<div class="pointer-events-none absolute -top-40 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="pointer-events-none absolute top-1/3 -right-20 w-80 h-80 bg-tertiary/10 rounded-full blur-3xl"></div>
+<div class="max-w-[1440px] mx-auto w-full flex flex-col space-y-space-xl relative z-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
+<div class="space-y-space-xs max-w-3xl">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-surface-container-high text-primary font-label-hud-micro text-label-hud-micro uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+              Bio-Productivity Telemetry
+            </span>
+<span class="font-label-hud-micro text-label-hud-micro text-on-surface-variant uppercase tracking-widest">// NODE-04: DEEP_WORK</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">
+            Eco-Focus &amp; Sustainability Productivity Hub
+          </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+            Combine focused work sessions with daily environmental commitments. Earn carbon credits for every productive Pomodoro completed.
+          </p>
+</div>
+<div class="flex items-center gap-space-md p-space-sm rounded-xl bg-surface-container-low shadow-md backdrop-blur-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary shadow-inner">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div>
+<div class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Session Offset Yield</div>
+<div class="font-headline-sm text-headline-sm font-bold text-primary flex items-baseline gap-1">
+              +140 <span class="font-label-hud text-label-hud text-on-surface-variant font-normal">g CO₂e / hr</span>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<div class="lg:col-span-7 flex flex-col space-y-space-lg">
+<div class="rounded-xl bg-surface-container-low/90 backdrop-blur-xl p-space-lg md:p-space-xl shadow-xl relative overflow-hidden flex flex-col items-center text-center">
+<div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-80"></div>
+<div class="w-full flex flex-wrap items-center justify-between gap-space-sm mb-space-lg pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-hud text-label-hud uppercase tracking-wider text-on-surface">Telemetry Active</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-hud-micro text-label-hud-micro uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm text-secondary">power_settings_new</span>
+<span>Power-Saver Node: Synchronized</span>
+</div>
+</div>
+<div class="inline-flex p-1 rounded-full bg-surface-container-lowest shadow-inner gap-1 mb-space-lg">
+<button class="px-space-md py-1.5 rounded-full font-label-hud text-label-hud tracking-wide transition-all bg-primary-container text-on-primary-container font-bold shadow-md" id="mode-focus" onclick="setTimerMode('focus')">
+                Eco-Focus (25m)
+              </button>
+<button class="px-space-md py-1.5 rounded-full font-label-hud text-label-hud tracking-wide transition-all text-on-surface-variant hover:text-on-surface" id="mode-short" onclick="setTimerMode('short')">
+                Short Nature Break (5m)
+              </button>
+<button class="px-space-md py-1.5 rounded-full font-label-hud text-label-hud tracking-wide transition-all text-on-surface-variant hover:text-on-surface" id="mode-long" onclick="setTimerMode('long')">
+                Deep Breath Rest (15m)
+              </button>
+</div>
+<div class="relative w-72 h-72 md:w-80 md:h-80 flex items-center justify-center my-space-md">
+<svg class="w-full h-full -rotate-90 transform" viewbox="0 0 260 260">
+<circle class="text-surface-container-highest" cx="130" cy="130" fill="none" opacity="0.45" r="112" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary transition-all duration-1000 ease-linear" cx="130" cy="130" fill="none" id="timer-progress-ring" r="112" stroke="currentColor" stroke-dasharray="703.7" stroke-dashoffset="175.9" stroke-linecap="round" stroke-width="8" style="filter: drop-shadow(0 0 10px rgba(78, 222, 163, 0.7));"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-display-hero text-display-hero font-bold tracking-tighter text-on-surface leading-none select-none" id="timer-display">
+                  25:00
+                </span>
+<div class="flex items-center gap-1.5 mt-space-xs text-secondary font-label-hud text-label-hud uppercase tracking-widest">
+<span class="material-symbols-outlined text-base animate-pulse">nest_clock_farsight_analog</span>
+<span id="timer-status-label">Sprint Mode</span>
+</div>
+<div class="mt-2 text-on-surface-variant font-body-sm text-body-sm">
+                  ~0.47g CO₂ Mitigated this block
+                </div>
+</div>
+</div>
+<div class="w-full max-w-md bg-surface-container rounded-xl p-space-md my-space-md flex items-center justify-between shadow-inner">
+<div class="flex items-center gap-space-sm text-left">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-xl">forest</span>
+</div>
+<div>
+<div class="font-body-sm text-body-sm font-semibold text-on-surface">Session 3 of 4</div>
+<div class="font-label-hud-micro text-label-hud-micro text-on-surface-variant">Acacia Biosphere Growth Phase</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-label-hud text-label-hud font-bold text-primary">75% Complete</div>
+<div class="w-24 h-2 bg-surface-container-highest rounded-full overflow-hidden mt-1">
+<div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full w-3/4"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-space-sm w-full pt-space-sm">
+<button class="px-space-xl py-space-sm rounded-full bg-gradient-to-r from-primary-container to-secondary-container hover:brightness-110 text-on-primary-container font-headline-sm text-headline-sm font-bold flex items-center gap-2 shadow-[0_0_24px_-4px_rgba(16,185,129,0.55)] transition-all" id="timer-toggle-btn" onclick="toggleTimer()">
+<span class="material-symbols-outlined text-2xl" id="timer-icon" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span id="timer-text">Start Focus</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" onclick="resetTimer()" title="Reset Session">
+<span class="material-symbols-outlined text-xl">restart_alt</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" onclick="skipRound()" title="Skip to Next Cycle">
+<span class="material-symbols-outlined text-xl">skip_next</span>
+</button>
+</div>
+</div>
+<div class="rounded-xl bg-surface-container-low p-space-lg shadow-md">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">equalizer</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Ambient Bio-Soundscape Generator</h2>
+</div>
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Binaural Mix 432Hz</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="p-space-md rounded-xl bg-surface-container flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-lg">air</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Desert Breeze</span>
+</div>
+<button class="sound-toggle px-2 py-0.5 rounded-full text-on-surface-variant bg-surface-container-high font-label-hud-micro text-label-hud-micro uppercase hover:text-on-surface" onclick="toggleSound(this)" type="button">
+                    Muted
+                  </button>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">volume_down</span>
+<input class="w-full accent-primary h-1.5 bg-surface-container-highest rounded-lg cursor-pointer" max="100" min="0" type="range" value="40"/>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">volume_up</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-lg">water_drop</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Mangrove Rain</span>
+</div>
+<button class="sound-toggle px-2 py-0.5 rounded-full text-on-primary-container bg-primary-container font-label-hud-micro text-label-hud-micro uppercase" onclick="toggleSound(this)" type="button">
+                    Playing
+                  </button>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">volume_down</span>
+<input class="w-full accent-primary h-1.5 bg-surface-container-highest rounded-lg cursor-pointer" max="100" min="0" type="range" value="65"/>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">volume_up</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-lg">flutter</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Forest Birds</span>
+</div>
+<button class="sound-toggle px-2 py-0.5 rounded-full text-on-surface-variant bg-surface-container-high font-label-hud-micro text-label-hud-micro uppercase hover:text-on-surface" onclick="toggleSound(this)" type="button">
+                    Muted
+                  </button>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">volume_down</span>
+<input class="w-full accent-primary h-1.5 bg-surface-container-highest rounded-lg cursor-pointer" max="100" min="0" type="range" value="30"/>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">volume_up</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">waves</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">White Noise</span>
+</div>
+<button class="sound-toggle px-2 py-0.5 rounded-full text-on-surface-variant bg-surface-container-high font-label-hud-micro text-label-hud-micro uppercase hover:text-on-surface" onclick="toggleSound(this)" type="button">
+                    Muted
+                  </button>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">volume_down</span>
+<input class="w-full accent-primary h-1.5 bg-surface-container-highest rounded-lg cursor-pointer" max="100" min="0" type="range" value="20"/>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">volume_up</span>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="rounded-xl bg-surface-container-low p-space-md flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">timelapse</span>
+</div>
+<div>
+<div class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Daily Deep Focus</div>
+<div class="font-metric-numeral text-metric-numeral font-bold text-on-surface leading-tight">3.5 hrs</div>
+<div class="font-body-sm text-body-sm text-secondary">+45m above daily average</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-container-low p-space-md flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl">energy_savings_leaf</span>
+</div>
+<div>
+<div class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Carbon Mitigated</div>
+<div class="font-metric-numeral text-metric-numeral font-bold text-primary leading-tight">700g CO₂</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Via device power-saver sync</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 flex flex-col space-y-space-lg">
+<div class="rounded-xl bg-surface-container-low p-space-lg md:p-space-xl shadow-xl flex flex-col space-y-space-md relative">
+<div class="flex items-center justify-between">
+<div class="space-y-0.5">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-primary tracking-widest font-bold">Stewardship Ledger</span>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">Daily Eco-Checklist</h2>
+</div>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-tertiary flex items-center gap-1 font-label-hud text-label-hud font-bold shadow-[0_0_12px_rgba(245,158,11,0.25)]" id="streak-badge">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+                6-Day Streak
+              </span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container space-y-space-xs">
+<div class="flex justify-between items-center text-on-surface font-body-sm text-body-sm font-semibold">
+<span>Daily Completion</span>
+<span class="text-primary font-label-hud text-label-hud" id="checklist-progress-text">40% (2 of 5 done)</span>
+</div>
+<div class="w-full h-2.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-500 rounded-full w-[40%]" id="checklist-progress-bar"></div>
+</div>
+<div class="flex justify-between items-center font-label-hud-micro text-label-hud-micro text-on-surface-variant pt-1">
+<span>Tier 1 Milestone</span>
+<span class="text-secondary font-bold">Next reward at 100% (+150 XP bonus)</span>
+</div>
+</div>
+<div class="flex flex-col space-y-space-sm pt-space-xs" id="checklist-items-container">
+<div class="checklist-item group p-space-sm md:p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all flex items-start gap-space-sm cursor-pointer" onclick="toggleTask(this)">
+<div class="mt-0.5 flex-shrink-0 w-5 h-5 rounded bg-primary text-on-primary flex items-center justify-center transition-all shadow-[0_0_8px_rgba(78,222,163,0.5)]">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<span class="font-body-md text-body-md text-on-surface-variant line-through select-none block truncate">
+                    Use a reusable thermal water bottle today
+                  </span>
+</div>
+<span class="font-label-hud-micro text-label-hud-micro px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-bold whitespace-nowrap">
+                  +20 XP
+                </span>
+</div>
+<div class="checklist-item group p-space-sm md:p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all flex items-start gap-space-sm cursor-pointer" onclick="toggleTask(this)">
+<div class="mt-0.5 flex-shrink-0 w-5 h-5 rounded bg-primary text-on-primary flex items-center justify-center transition-all shadow-[0_0_8px_rgba(78,222,163,0.5)]">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<span class="font-body-md text-body-md text-on-surface-variant line-through select-none block truncate">
+                    Set thermostat/AC to eco-optimal 24°C
+                  </span>
+</div>
+<span class="font-label-hud-micro text-label-hud-micro px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-bold whitespace-nowrap">
+                  +30 XP
+                </span>
+</div>
+<div class="checklist-item group p-space-sm md:p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all flex items-start gap-space-sm cursor-pointer" onclick="toggleTask(this)">
+<div class="mt-0.5 flex-shrink-0 w-5 h-5 rounded bg-surface-container-highest flex items-center justify-center transition-all">
+<span class="material-symbols-outlined text-sm font-bold hidden">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<span class="font-body-md text-body-md text-on-surface select-none block truncate">
+                    Switch off all standby workstation monitors and surge protectors
+                  </span>
+</div>
+<span class="font-label-hud-micro text-label-hud-micro px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant group-hover:text-primary transition-colors font-bold whitespace-nowrap">
+                  +15 XP
+                </span>
+</div>
+<div class="checklist-item group p-space-sm md:p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all flex items-start gap-space-sm cursor-pointer" onclick="toggleTask(this)">
+<div class="mt-0.5 flex-shrink-0 w-5 h-5 rounded bg-surface-container-highest flex items-center justify-center transition-all">
+<span class="material-symbols-outlined text-sm font-bold hidden">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<span class="font-body-md text-body-md text-on-surface select-none block truncate">
+                    Opt for a 100% plant-based lunch
+                  </span>
+</div>
+<span class="font-label-hud-micro text-label-hud-micro px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant group-hover:text-primary transition-colors font-bold whitespace-nowrap">
+                  +40 XP
+                </span>
+</div>
+<div class="checklist-item group p-space-sm md:p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all flex items-start gap-space-sm cursor-pointer" onclick="toggleTask(this)">
+<div class="mt-0.5 flex-shrink-0 w-5 h-5 rounded bg-surface-container-highest flex items-center justify-center transition-all">
+<span class="material-symbols-outlined text-sm font-bold hidden">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<span class="font-body-md text-body-md text-on-surface select-none block truncate">
+                    Take stairs or walk short errands under 1km
+                  </span>
+</div>
+<span class="font-label-hud-micro text-label-hud-micro px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant group-hover:text-primary transition-colors font-bold whitespace-nowrap">
+                  +25 XP
+                </span>
+</div>
+</div>
+<div class="pt-space-sm">
+<form class="flex items-center gap-space-xs" id="new-habit-form" onsubmit="addNewHabit(event)">
+<input class="flex-1 bg-surface-container px-space-md py-space-sm rounded-full text-on-surface placeholder:text-outline text-body-sm focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" id="custom-goal-input" placeholder="Add custom eco-goal (e.g. Unplug charges at night)..." type="text"/>
+<button class="px-space-md py-space-sm rounded-full bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-hud text-label-hud font-bold whitespace-nowrap flex items-center gap-1 transition-colors" type="submit">
+<span class="material-symbols-outlined text-base">add</span>
+                  + Add Habit
+                </button>
+</form>
+</div>
+<div class="hidden absolute inset-x-space-md top-4 p-space-md rounded-xl bg-primary-container text-on-primary-container shadow-2xl flex items-center justify-between transform transition-all duration-300" id="reward-celebration-toast">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+<div>
+<div class="font-headline-sm text-headline-sm font-bold">100% Target Crushed!</div>
+<div class="font-body-sm text-body-sm">All daily planetary goals logged. +150 XP credited.</div>
+</div>
+</div>
+<button class="p-1 rounded-full hover:bg-black/10" onclick="dismissToast()" type="button">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+</div>
+<div class="rounded-xl bg-gradient-to-br from-surface-container-low to-surface-container p-space-lg shadow-md relative overflow-hidden">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container text-on-tertiary-container flex items-center justify-center flex-shrink-0 shadow-[0_0_16px_rgba(226,145,0,0.3)]">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-tertiary font-bold tracking-wider">Field Operative Note</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Validated Sensor Standard</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Ranger Wisdom of the Day</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  Setting your AC to 24°C instead of 20°C in the Gulf summer reduces household energy usage by up to 24% without sacrificing thermal comfort.
+                </p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden shadow-lg relative h-48 flex items-end p-space-md bg-cover bg-center" data-alt="A lush verdant futuristic ecological greenhouse sanctuary with biophilic solar architecture, mist systems, and research monitoring equipment under soft morning sunlight, rendered in emerald green, dark obsidian slate, and ambient solar tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBZBERNOOmj0dD08RvgXl5E45eGkSBnv76W66o8x9eD-EtiN-dll-qZa7Cw_wJM2T5JVLRMHoLRn-3QAXoQKt9qWcOjNkx0Y8vBDGkI0s_aqPm0TVoMAWG98F6_lM68EcZ90vfU1QgXutq9NH-7nRN6CQ1kdBj-SgCKiaNs9txNvPRCDqEDh721sMW6F4kEcwnJHd5OoDWlRmv-zVVtcd_8GfcN7CX6Pk-0f5Rd583roprriZFVehDy')">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-surface-container-lowest/70 to-transparent"></div>
+<div class="relative z-10 w-full flex items-center justify-between">
+<div>
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-secondary font-bold">Research Biome Cluster</span>
+<div class="font-body-md text-body-md font-bold text-on-surface">Al-Hajar Mangrove Station</div>
+</div>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/80 text-primary font-label-hud text-label-hud font-semibold backdrop-blur-md">
+                Live Feed Sync
+              </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<canvas class="pointer-events-none fixed inset-0 z-50 w-full h-full hidden" id="confetti-canvas"></canvas>
+<script>
+    let timerDuration = 25 * 60;
+    let timerRemaining = 25 * 60;
+    let timerInterval = null;
+    let timerRunning = false;
+    let currentMode = 'focus';
+
+    const ringCircumference = 703.7;
+
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    }
+
+    function updateTimerUI() {
+      const display = document.getElementById('timer-display');
+      const ring = document.getElementById('timer-progress-ring');
+      if (display) display.innerText = formatTime(timerRemaining);
+
+      if (ring) {
+        const offset = ringCircumference - (timerRemaining / timerDuration) * ringCircumference;
+        ring.style.strokeDashoffset = offset;
+      }
+    }
+
+    function toggleTimer() {
+      const btn = document.getElementById('timer-toggle-btn');
+      const text = document.getElementById('timer-text');
+      const icon = document.getElementById('timer-icon');
+
+      if (!timerRunning) {
+        timerRunning = true;
+        if (text) text.innerText = 'Pause';
+        if (icon) icon.innerText = 'pause';
+        timerInterval = setInterval(() => {
+          if (timerRemaining > 0) {
+            timerRemaining--;
+            updateTimerUI();
+          } else {
+            clearInterval(timerInterval);
+            timerRunning = false;
+            if (text) text.innerText = 'Start Focus';
+            if (icon) icon.innerText = 'play_arrow';
+            alert('Cycle completed! Telemetry recorded +35 XP.');
+          }
+        }, 1000);
+      } else {
+        clearInterval(timerInterval);
+        timerRunning = false;
+        if (text) text.innerText = 'Resume';
+        if (icon) icon.innerText = 'play_arrow';
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      timerRunning = false;
+      const text = document.getElementById('timer-text');
+      const icon = document.getElementById('timer-icon');
+      if (text) text.innerText = 'Start Focus';
+      if (icon) icon.innerText = 'play_arrow';
+
+      if (currentMode === 'focus') timerDuration = 25 * 60;
+      else if (currentMode === 'short') timerDuration = 5 * 60;
+      else if (currentMode === 'long') timerDuration = 15 * 60;
+
+      timerRemaining = timerDuration;
+      updateTimerUI();
+    }
+
+    function skipRound() {
+      resetTimer();
+      const statusLabel = document.getElementById('timer-status-label');
+      if (currentMode === 'focus') {
+        setTimerMode('short');
+      } else {
+        setTimerMode('focus');
+      }
+    }
+
+    function setTimerMode(mode) {
+      currentMode = mode;
+      clearInterval(timerInterval);
+      timerRunning = false;
+      const text = document.getElementById('timer-text');
+      const icon = document.getElementById('timer-icon');
+      if (text) text.innerText = 'Start Focus';
+      if (icon) icon.innerText = 'play_arrow';
+
+      const focusBtn = document.getElementById('mode-focus');
+      const shortBtn = document.getElementById('mode-short');
+      const longBtn = document.getElementById('mode-long');
+      const statusLabel = document.getElementById('timer-status-label');
+
+      [focusBtn, shortBtn, longBtn].forEach(b => {
+        b.className = "px-space-md py-1.5 rounded-full font-label-hud text-label-hud tracking-wide transition-all text-on-surface-variant hover:text-on-surface";
+      });
+
+      if (mode === 'focus') {
+        timerDuration = 25 * 60;
+        focusBtn.className = "px-space-md py-1.5 rounded-full font-label-hud text-label-hud tracking-wide transition-all bg-primary-container text-on-primary-container font-bold shadow-md";
+        if (statusLabel) statusLabel.innerText = "Sprint Mode";
+      } else if (mode === 'short') {
+        timerDuration = 5 * 60;
+        shortBtn.className = "px-space-md py-1.5 rounded-full font-label-hud text-label-hud tracking-wide transition-all bg-primary-container text-on-primary-container font-bold shadow-md";
+        if (statusLabel) statusLabel.innerText = "Short Pause";
+      } else if (mode === 'long') {
+        timerDuration = 15 * 60;
+        longBtn.className = "px-space-md py-1.5 rounded-full font-label-hud text-label-hud tracking-wide transition-all bg-primary-container text-on-primary-container font-bold shadow-md";
+        if (statusLabel) statusLabel.innerText = "Recovery Wave";
+      }
+
+      timerRemaining = timerDuration;
+      updateTimerUI();
+    }
+
+    function toggleTask(elem) {
+      const box = elem.querySelector('div:first-child');
+      const icon = box.querySelector('span');
+      const label = elem.querySelector('div:nth-child(2) span');
+
+      const isChecked = !icon.classList.contains('hidden');
+
+      if (isChecked) {
+        icon.classList.add('hidden');
+        box.classList.remove('bg-primary', 'text-on-primary', 'shadow-[0_0_8px_rgba(78,222,163,0.5)]');
+        box.classList.add('bg-surface-container-highest');
+        label.classList.remove('line-through', 'text-on-surface-variant');
+        label.classList.add('text-on-surface');
+      } else {
+        icon.classList.remove('hidden');
+        box.classList.add('bg-primary', 'text-on-primary', 'shadow-[0_0_8px_rgba(78,222,163,0.5)]');
+        box.classList.remove('bg-surface-container-highest');
+        label.classList.add('line-through', 'text-on-surface-variant');
+        label.classList.remove('text-on-surface');
+      }
+
+      recalcProgress();
+    }
+
+    function recalcProgress() {
+      const items = document.querySelectorAll('.checklist-item');
+      const total = items.length;
+      let completed = 0;
+
+      items.forEach(it => {
+        const icon = it.querySelector('div:first-child span');
+        if (!icon.classList.contains('hidden')) completed++;
+      });
+
+      const pct = Math.round((completed / total) * 100);
+      const bar = document.getElementById('checklist-progress-bar');
+      const text = document.getElementById('checklist-progress-text');
+
+      if (bar) bar.style.width = pct + '%';
+      if (text) text.innerText = `${pct}% (${completed} of ${total} done)`;
+
+      if (pct === 100) {
+        showCelebration();
+      }
+    }
+
+    function addNewHabit(e) {
+      e.preventDefault();
+      const input = document.getElementById('custom-goal-input');
+      const val = input.value.trim();
+      if (!val) return;
+
+      const container = document.getElementById('checklist-items-container');
+      const div = document.createElement('div');
+      div.className = "checklist-item group p-space-sm md:p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all flex items-start gap-space-sm cursor-pointer";
+      div.onclick = function() { toggleTask(this); };
+
+      div.innerHTML = `
+        <div class="mt-0.5 flex-shrink-0 w-5 h-5 rounded bg-surface-container-highest flex items-center justify-center transition-all">
+          <span class="material-symbols-outlined text-sm font-bold hidden">check</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <span class="font-body-md text-body-md text-on-surface select-none block truncate">
+            ${escapeHtml(val)}
+          </span>
+        </div>
+        <span class="font-label-hud-micro text-label-hud-micro px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant group-hover:text-primary transition-colors font-bold whitespace-nowrap">
+          +20 XP
+        </span>
+      `;
+
+      container.appendChild(div);
+      input.value = '';
+      recalcProgress();
+    }
+
+    function escapeHtml(text) {
+      return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function toggleSound(btn) {
+      const isMuted = btn.innerText.trim().toUpperCase() === 'MUTED';
+      if (isMuted) {
+        btn.innerText = 'PLAYING';
+        btn.className = "sound-toggle px-2 py-0.5 rounded-full text-on-primary-container bg-primary-container font-label-hud-micro text-label-hud-micro uppercase";
+      } else {
+        btn.innerText = 'MUTED';
+        btn.className = "sound-toggle px-2 py-0.5 rounded-full text-on-surface-variant bg-surface-container-high font-label-hud-micro text-label-hud-micro uppercase hover:text-on-surface";
+      }
+    }
+
+    function showCelebration() {
+      const toast = document.getElementById('reward-celebration-toast');
+      if (toast) toast.classList.remove('hidden');
+
+      const canvas = document.getElementById('confetti-canvas');
+      if (!canvas) return;
+      canvas.classList.remove('hidden');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const particles = [];
+      const colors = ['#4edea3', '#ffb95f', '#45dfa4', '#dbe3f4'];
+      for (let i = 0; i < 80; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          size: Math.random() * 8 + 4,
+          speedY: Math.random() * 4 + 2,
+          speedX: Math.random() * 2 - 1,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        });
+      }
+
+      let frames = 0;
+      function animateConfetti() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          p.y += p.speedY;
+          p.x += p.speedX;
+          ctx.fillStyle = p.color;
+          ctx.fillRect(p.x, p.y, p.size, p.size);
+        });
+
+        frames++;
+        if (frames < 140) {
+          requestAnimationFrame(animateConfetti);
+        } else {
+          canvas.classList.add('hidden');
+        }
+      }
+      animateConfetti();
+    }
+
+    function dismissToast() {
+      const toast = document.getElementById('reward-celebration-toast');
+      if (toast) toast.classList.add('hidden');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateTimerUI();
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest/90 backdrop-blur-md mt-auto"><div class="w-full px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start pb-space-lg"><div class="md:col-span-5 space-y-space-sm"><div class="flex items-center gap-space-sm"><img alt="EcoPulse Master Emblem" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XshwQcJAVyaASIBMiQKhwkajiazM4RhzT1EkIVSy-YJqZ96fAu_lHaebrmITxSeVRi2PfR7R5EL1N0Mr-c7EcWvwMxXEcPbkDFie5p3XPqCVzHnFvH36Wdj-OGLQM1evwrClSjvbGVV5AYze7-R0Kym_4_wgKquvStyWm5Gxx28rijkPH8iyHLumvl_3BDgYrDxW-005iJMspVjP1mp01zWlvWYLLQrr8vaXl3FJSK8rhbTpkLTcZp2Bk"/><span class="font-headline-sm text-headline-sm text-on-surface font-bold">EcoPulse</span><span class="px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-label-hud-micro text-label-hud-micro uppercase">v4.2</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">Synthesizing planetary biosensors, high-performance telemetry, and gamified environmental action to accelerate global carbon drawdown initiatives.</p><div class="flex items-center gap-space-xs pt-space-xs"><span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span><span class="font-label-hud text-label-hud text-on-surface-variant uppercase tracking-wider">Sensors Live • 99.8% Grid Sync</span></div></div><div class="md:col-span-4 flex gap-space-xl"><div class="space-y-space-xs"><div class="font-label-hud text-label-hud uppercase tracking-wider text-on-surface font-bold">Modules</div><div class="flex flex-col space-y-1 font-body-sm text-body-sm text-on-surface-variant"><a class="hover:text-primary transition-colors" href="#">Carbon Audits</a><a class="hover:text-primary transition-colors" href="#">Telemetry Feed</a><a class="hover:text-primary transition-colors" href="#">Eco Quests</a><a class="hover:text-primary transition-colors" href="#">Flora Index</a></div></div><div class="space-y-space-xs"><div class="font-label-hud text-label-hud uppercase tracking-wider text-on-surface font-bold">Governance</div><div class="flex flex-col space-y-1 font-body-sm text-body-sm text-on-surface-variant"><a class="hover:text-primary transition-colors" href="#">Telemetry API</a><a class="hover:text-primary transition-colors" href="#">IDCC Protocol</a><a class="hover:text-primary transition-colors" href="#">Climate Trust</a><a class="hover:text-primary transition-colors" href="#">Privacy Node</a></div></div></div><div class="md:col-span-3 flex md:justify-end items-start"><button class="group flex items-center gap-space-xs px-space-md py-space-sm rounded-full bg-surface-container-high hover:bg-surface-container-highest transition-all shadow-[0_1px_8px_rgba(0,0,0,0.2)]" onclick="window.scrollTo({top:0,behavior:'smooth'})" type="button"><span class="font-label-hud text-label-hud uppercase text-on-surface-variant group-hover:text-on-surface transition-colors">Top of Grid</span><span class="material-symbols-outlined text-lg text-primary group-hover:-translate-y-0.5 transition-transform">arrow_upward</span></button></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm font-body-sm text-body-sm text-on-surface-variant"><p>© 2026 EcoPulse Biosphere Initiative. Accredited IDCC Global Node.</p><p class="font-label-hud-micro text-label-hud-micro uppercase tracking-wider text-outline">Obsidian Bio-Telemetry v4.2.1 • All Satellites Nominal</p></div></div></footer></body></html>

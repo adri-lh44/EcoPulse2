@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>EcoPulse - Planetary Stewardship Platform</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-fixed-variant": "#005236", "background": "#0c1420", "on-tertiary": "#472a00", "tertiary": "#ffb95f", "primary-fixed": "#6ffbbe", "surface-tint": "#4edea3", "on-surface": "#dbe3f4", "inverse-on-surface": "#29313e", "surface-container-high": "#232a37", "secondary": "#45dfa4", "on-secondary-fixed": "#002114", "error-container": "#93000a", "on-surface-variant": "#bbcabf", "on-primary-container": "#00422b", "primary": "#4edea3", "on-secondary": "#003824", "tertiary-fixed": "#ffddb8", "secondary-container": "#00bd85", "on-primary": "#003824", "on-tertiary-container": "#523200", "surface-dim": "#0c1420", "secondary-fixed": "#68fcbf", "error": "#ffb4ab", "surface-container-lowest": "#070e1a", "surface-container-low": "#141c28", "on-tertiary-fixed-variant": "#653e00", "secondary-fixed-dim": "#45dfa4", "inverse-primary": "#006c49", "tertiary-container": "#e29100", "on-secondary-fixed-variant": "#005137", "on-background": "#dbe3f4", "on-secondary-container": "#00452e", "tertiary-fixed-dim": "#ffb95f", "outline-variant": "#3c4a42", "outline": "#86948a", "on-primary-fixed": "#002113", "on-error-container": "#ffdad6", "primary-container": "#10b981", "surface": "#0c1420", "on-error": "#690005", "inverse-surface": "#dbe3f4", "surface-container-highest": "#2d3542", "on-tertiary-fixed": "#2a1700", "surface-bright": "#323947", "surface-variant": "#2d3542", "surface-container": "#18202c", "primary-fixed-dim": "#4edea3" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "margin-mobile": "1.25rem", "space-xl": "2.5rem", "margin": "3rem", "gutter": "1.5rem", "gutter-mobile": "1rem", "space-lg": "1.5rem", "space-md": "1rem", "space-sm": "0.5rem" }, "fontFamily": { "headline-md": ["Outfit"], "body-lg": ["Plus Jakarta Sans"], "display-hero-mobile": ["Outfit"], "body-md": ["Plus Jakarta Sans"], "label-hud": ["Space Grotesk"], "headline-sm": ["Outfit"], "headline-lg": ["Outfit"], "display-hero": ["Outfit"], "label-hud-micro": ["Space Grotesk"], "headline-lg-mobile": ["Outfit"], "metric-numeral": ["Outfit"], "body-sm": ["Plus Jakarta Sans"] }, "fontSize": { "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }], "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "label-hud": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }], "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "label-hud-micro": ["10px", { "lineHeight": "14px", "letterSpacing": "0.12em", "fontWeight": "700" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "metric-numeral": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400" }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-20 w-full px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg flex-shrink-0"><div class="flex items-center gap-space-sm"><img alt="EcoPulse Master Emblem" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XshwQcJAVyaASIBMiQKhwkajiazM4RhzT1EkIVSy-YJqZ96fAu_lHaebrmITxSeVRi2PfR7R5EL1N0Mr-c7EcWvwMxXEcPbkDFie5p3XPqCVzHnFvH36Wdj-OGLQM1evwrClSjvbGVV5AYze7-R0Kym_4_wgKquvStyWm5Gxx28rijkPH8iyHLumvl_3BDgYrDxW-005iJMspVjP1mp01zWlvWYLLQrr8vaXl3FJSK8rhbTpkLTcZp2Bk"/><span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">EcoPulse</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container-high shadow-[0_0_12px_rgba(16,185,129,0.2)]"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-label-hud-micro text-label-hud-micro uppercase text-primary font-bold tracking-wider">IDCC 2026 Edition</span></div></div><nav class="hidden lg:flex items-center gap-space-xs p-1 bg-surface-container-low/80 backdrop-blur-md rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(16,185,129,0.35)]"><a class="px-space-md py-space-xs rounded-full font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="dashboard" href="#">Dashboard</a><a class="px-space-md py-space-xs rounded-full font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="eco-tracker" href="#">Eco-Tracker &amp; Footprint</a><a aria-current="page" class="px-space-md py-space-xs rounded-full transition-all bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(16,185,129,0.35)]" data-path="recycle-rush" href="#">Recycle Rush</a><a class="px-space-md py-space-xs rounded-full font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="heritage-trail" href="#">Heritage &amp; Eco-Trail</a><a class="px-space-md py-space-xs rounded-full font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="focus-timer" href="#">Focus &amp; Productivity</a></nav><div class="flex items-center gap-space-md flex-shrink-0"><div class="hidden 2xl:flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-high/70 backdrop-blur-md"><div class="flex flex-col"><div class="flex items-center justify-between gap-space-sm"><span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Lvl 14 Ranger</span><span class="font-label-hud text-label-hud text-primary font-bold">2,840 XP</span></div><div class="w-28 h-1.5 rounded-full bg-surface-container-highest overflow-hidden mt-0.5"><div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full w-3/4 shadow-[0_0_8px_rgba(78,222,163,0.5)]"></div></div></div></div><button aria-label="Toggle theme" class="w-10 h-10 rounded-full bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">wb_sunny</span></button><button aria-label="Notifications" class="relative w-10 h-10 rounded-full bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary ring-2 ring-surface shadow-[0_0_6px_rgba(78,222,163,0.8)]"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="relative flex-shrink-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-primary/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV0iYBq6XXo3W7B6ZmpZ5qJ_wNddNqFe4ePw-9TdGLXdsrXdNgKoKKpXWN1mPTqEmoZnO8PTUjeqv4uBlB2sq6i7Gkg-wQdq680sjxqnLyeXJJsso-Rq7RRUOtpW2KZLLTmdyJ9_3J-Ru7kvJMjMZ0wkfnl6laORzekWINaDHNMqEzcJzG5To3H-rR5AG_SXkDqzcIDQ2wndkgmkM-Ao-bPLGa2OFYcpniziS9NhLkxy__BKdSJ6gu"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface"></span></div><div class="hidden md:flex flex-col text-left"><span class="font-body-sm text-body-sm font-semibold text-on-surface leading-none">Dr. Maya Lin</span><span class="font-label-hud-micro text-label-hud-micro text-secondary font-medium tracking-wide mt-0.5">Eco-Active</span></div></div></div></div></header><main class="w-full pt-20 bg-background flex-1"><div class="flex flex-col w-full">
+<!-- Dynamic Atmospheric Glow Emittance Layers -->
+<div class="relative w-full overflow-hidden px-margin py-space-md">
+<div class="absolute -top-28 left-1/4 w-[600px] h-[340px] bg-primary/10 rounded-full blur-[140px] pointer-events-none"></div>
+<div class="absolute top-1/2 right-10 w-[420px] h-[380px] bg-tertiary/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="max-w-[1440px] mx-auto w-full flex flex-col gap-space-lg">
+<!-- TOP METRIC HUD BAR -->
+<section class="w-full bg-surface-container-low/85 backdrop-blur-2xl rounded-xl p-space-md shadow-xl flex flex-col lg:flex-row items-center justify-between gap-gutter">
+<!-- Identity & Status Indicator -->
+<div class="flex items-center gap-space-md w-full lg:w-auto justify-between lg:justify-start">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shadow-[0_0_16px_rgba(78,222,163,0.3)]">
+<span class="material-symbols-outlined text-2xl">sports_esports</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">Recycle Rush</span>
+<span class="px-space-xs py-0.5 rounded bg-primary-container/20 text-primary font-label-hud-micro text-label-hud-micro uppercase">Arcade Mod v2.6</span>
+</div>
+<p class="font-label-hud text-label-hud text-on-surface-variant uppercase tracking-wider">Planetary Sorter • Real-time Telemetry</p>
+</div>
+</div>
+<div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-highest">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-hud text-label-hud text-secondary uppercase font-semibold">Sensor Live</span>
+</div>
+</div>
+<!-- Central Score HUD -->
+<div class="flex flex-wrap items-center justify-center gap-space-lg w-full lg:w-auto">
+<!-- Active Score -->
+<div class="flex flex-col items-center bg-surface-container px-space-md py-1.5 rounded-lg shadow-inner min-w-[140px]">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant font-bold">Active Score</span>
+<span class="font-metric-numeral text-metric-numeral text-primary transition-transform duration-150 scale-100 flex items-center gap-1" id="scoreDisplay">1,420</span>
+</div>
+<!-- Multiplier Combo -->
+<div class="flex flex-col items-center bg-surface-container px-space-md py-1.5 rounded-lg shadow-inner min-w-[130px]">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant font-bold">Multiplier</span>
+<div class="flex items-center gap-1">
+<span class="font-headline-md text-headline-md font-bold text-tertiary" id="comboDisplay">x3</span>
+<span class="font-label-hud-micro text-label-hud-micro text-tertiary uppercase font-bold tracking-widest animate-pulse">Combo!</span>
+</div>
+</div>
+<!-- Circular Countdown Gauge -->
+<div class="flex items-center gap-space-sm bg-surface-container px-space-md py-1.5 rounded-lg shadow-inner">
+<div class="relative w-10 h-10 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-primary transition-all duration-1000 ease-linear shadow-[0_0_12px_rgba(78,222,163,0.8)]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" id="timerCircle" stroke="currentColor" stroke-dasharray="100, 100" stroke-dashoffset="20" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-label-hud font-bold text-on-surface" id="timerText">24s</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant font-bold">Time Window</span>
+<span class="font-body-sm text-body-sm text-secondary font-medium" id="timerSubtext">00:24 left</span>
+</div>
+</div>
+<!-- High Score Record -->
+<div class="hidden xl:flex flex-col bg-surface-container px-space-md py-1.5 rounded-lg shadow-inner">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant font-bold">Record To Beat</span>
+<span class="font-body-sm text-body-sm font-semibold text-tertiary-fixed" id="recordDisplay">8,450 pts <span class="text-on-surface-variant font-normal">(Dr. Maya Lin)</span></span>
+</div>
+</div>
+<!-- Controls Utility Bar -->
+<div class="flex items-center gap-space-xs w-full lg:w-auto justify-end">
+<button class="px-space-md py-space-xs rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-hud text-label-hud uppercase flex items-center gap-1 transition-colors" id="pauseBtn" type="button">
+<span class="material-symbols-outlined text-lg" id="pauseIcon">pause</span>
+<span id="pauseText">Pause</span>
+</button>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-hud text-label-hud uppercase flex items-center gap-1 transition-colors" id="soundBtn" type="button">
+<span class="material-symbols-outlined text-lg" id="soundIcon">volume_up</span>
+<span id="soundText">SFX [On]</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface flex items-center justify-center transition-transform hover:rotate-180" id="restartBtn" type="button">
+<span class="material-symbols-outlined text-lg">restart_alt</span>
+</button>
+</div>
+</section>
+<!-- MAIN ARENA GRID (Arcade Arena + HUD Intelligence Sidebar) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-stretch">
+<!-- CENTRAL PLAY ARENA (8 Columns) -->
+<section class="lg:col-span-8 flex flex-col gap-space-md">
+<!-- Conveyor & Falling Target Arena -->
+<div class="relative w-full h-[520px] rounded-xl bg-surface-container-lowest/95 backdrop-blur-2xl overflow-hidden shadow-2xl flex flex-col justify-between p-space-md">
+<!-- Conveyor Beam Background & Laser Trajectory Grid Lines -->
+<div class="absolute inset-0 pointer-events-none opacity-20">
+<div class="w-full h-full bg-[linear-gradient(to_right,#18202c_1px,transparent_1px),linear-gradient(to_bottom,#18202c_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+</div>
+<!-- Gravity Funnel & Lasers -->
+<div class="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-transparent via-primary/60 to-transparent"></div>
+<div class="absolute left-1/3 top-0 bottom-0 w-[1px] bg-surface-container-high/40 pointer-events-none"></div>
+<div class="absolute right-1/3 top-0 bottom-0 w-[1px] bg-surface-container-high/40 pointer-events-none"></div>
+<!-- Overhead Conveyor Bar (Origin HUD) -->
+<div class="relative z-10 w-full flex items-center justify-between px-space-md py-space-xs rounded-lg bg-surface-container-low/70 backdrop-blur-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-base animate-spin">conveyor_belt</span>
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant tracking-wider font-semibold">Feed: Kinetic Sorting Stream</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-secondary">Drop Velocity: 1.25 G</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</div>
+</div>
+<!-- Frenzy Meter Progress Bar Above Drop Lane -->
+<div class="relative z-10 w-full bg-surface-container-high/80 rounded-full h-2 overflow-hidden shadow-inner">
+<div class="h-full bg-gradient-to-r from-primary via-secondary to-tertiary w-3/5 transition-all duration-300 shadow-[0_0_12px_rgba(78,222,163,0.6)]" id="frenzyBar"></div>
+</div>
+<!-- Central Falling Drop Lane Stage -->
+<div class="relative flex-1 w-full flex items-center justify-center overflow-hidden" id="dropZone">
+<!-- Floating Feedback Toast Alerts -->
+<div class="absolute top-10 pointer-events-none opacity-0 transform -translate-y-4 transition-all duration-300 z-30 flex items-center gap-2 px-space-md py-1 rounded-full font-label-hud text-label-hud font-bold shadow-2xl" id="feedbackBadge">
+<span class="material-symbols-outlined text-sm" id="feedbackIcon">check_circle</span>
+<span id="feedbackText">+100 Perfect Sort!</span>
+</div>
+<!-- Speed & Trajectory Glow Lines -->
+<div class="absolute inset-y-0 w-48 flex justify-center pointer-events-none">
+<div class="w-0.5 h-full bg-gradient-to-b from-primary/30 via-primary/10 to-transparent"></div>
+</div>
+<!-- ACTIVE FALLING ITEM CARD -->
+<div class="relative z-20 flex flex-col items-center text-center p-space-md rounded-2xl bg-surface-container/90 backdrop-blur-xl shadow-[0_0_36px_rgba(78,222,163,0.35)] transition-all duration-150 transform translate-y-0 cursor-grab active:cursor-grabbing hover:scale-105 max-w-xs" id="fallingItem">
+<!-- Category Biome Pill Indicator -->
+<div class="flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container-high mb-space-sm shadow-inner">
+<span class="w-1.5 h-1.5 rounded-full bg-primary" id="itemDot"></span>
+<span class="font-label-hud-micro text-label-hud-micro uppercase font-bold text-primary tracking-wider" id="itemCategory">Plastic Polymers</span>
+</div>
+<!-- Visual Asset / Photo Thumbnail for Item -->
+<div class="relative w-28 h-28 rounded-xl overflow-hidden bg-surface-container-high flex items-center justify-center p-2 mb-space-xs">
+<img class="w-full h-full object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]" data-alt="A clean, semi-translucent discarded PET clear mineral water bottle with subtle bio-luminescent aqua light reflection inside a futuristic obsidian laboratory chamber, hyper-detailed product studio photography." id="itemImage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg2VQLmDRvXrmfFe_0BDrjkIDTbJyvIqJJk_gCbxYWqQdsS28Nd9GJBGn-54NAiL86_4_5fUE3nYwemCfp53g6BSgKqHZnWiHjFOi3euMxxrnRG4Sn3IQyHoL5G3At72-3d-W2I1FZjw6uS-ElKuhgls7YqptW4FNx4vh4Iqv7wKF9-O8UeSpXu2isLla2Ll7js1l1157DYC3IeAC7u6eS9_nm7oeRNqGFyYWZkuPFsBRtHZHVUzMr"/>
+<span class="material-symbols-outlined text-5xl text-primary hidden" id="itemFallbackIcon">water_bottle</span>
+</div>
+<!-- Name & Guidance Tag -->
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface" id="itemName">Clean PET Plastic Bottle</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5" id="itemHint">Rinsed food-grade thermoplastic; highly recyclable.</p>
+<!-- Keydown Indicator Guidance -->
+<div class="mt-space-sm flex items-center gap-space-xs font-label-hud-micro text-label-hud-micro uppercase text-outline">
+<span class="material-symbols-outlined text-xs">keyboard</span>
+<span>Press Bin Keys [1], [2], or [3]</span>
+</div>
+</div>
+</div>
+<!-- Proximity Warning Laser Base Line -->
+<div class="relative z-10 w-full flex items-center justify-between px-space-sm pt-space-xs text-on-surface-variant font-label-hud-micro text-label-hud-micro uppercase tracking-wider">
+<span class="text-secondary flex items-center gap-1"><span class="material-symbols-outlined text-xs">south</span> Target Drop Area</span>
+<span class="text-tertiary font-bold tracking-widest" id="frenzyStatus">Frenzy: 60%</span>
+</div>
+</div>
+<!-- INTERACTIVE TARGET BINS (Bottom Sorting Trays) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter items-stretch">
+<!-- BIN 1: RECYCLING BIN (Key [1]) -->
+<button class="group relative rounded-xl p-space-md text-left transition-all duration-200 bg-surface-container hover:bg-surface-container-high hover:-translate-y-1 active:translate-y-0 shadow-lg hover:shadow-[0_0_24px_rgba(78,222,163,0.35)] flex flex-col justify-between overflow-hidden" id="binRecycle" type="button">
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary"></div>
+<div class="flex items-start justify-between w-full">
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center text-primary group-hover:scale-110 transition-transform shadow-inner">
+<span class="material-symbols-outlined text-3xl">recycling</span>
+</div>
+<span class="px-space-sm py-1 rounded bg-surface-container-highest font-label-hud text-label-hud text-primary font-bold shadow">KEY [1]</span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-primary transition-colors">Recycle</span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Clean plastics, aluminum cans, glass vessels, clean corrugated paper.</p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">
+<span>Diverted: <strong class="text-primary font-bold" id="divertedRecycle">18 units</strong></span>
+<span class="text-secondary font-bold group-hover:translate-x-1 transition-transform flex items-center gap-0.5">Route <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</button>
+<!-- BIN 2: COMPOST / ORGANIC BIN (Key [2]) -->
+<button class="group relative rounded-xl p-space-md text-left transition-all duration-200 bg-surface-container hover:bg-surface-container-high hover:-translate-y-1 active:translate-y-0 shadow-lg hover:shadow-[0_0_24px_rgba(255,185,95,0.35)] flex flex-col justify-between overflow-hidden" id="binCompost" type="button">
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-tertiary to-tertiary-container"></div>
+<div class="flex items-start justify-between w-full">
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform shadow-inner">
+<span class="material-symbols-outlined text-3xl">compost</span>
+</div>
+<span class="px-space-sm py-1 rounded bg-surface-container-highest font-label-hud text-label-hud text-tertiary font-bold shadow">KEY [2]</span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-tertiary transition-colors">Compost</span>
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Fruit peels, coffee grounds, organic food scraps, untreated yard leaves.</p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">
+<span>Diverted: <strong class="text-tertiary font-bold" id="divertedCompost">12 units</strong></span>
+<span class="text-tertiary font-bold group-hover:translate-x-1 transition-transform flex items-center gap-0.5">Route <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</button>
+<!-- BIN 3: LANDFILL / CONTAMINATED (Key [3]) -->
+<button class="group relative rounded-xl p-space-md text-left transition-all duration-200 bg-surface-container hover:bg-surface-container-high hover:-translate-y-1 active:translate-y-0 shadow-lg hover:shadow-[0_0_24px_rgba(255,180,171,0.25)] flex flex-col justify-between overflow-hidden" id="binLandfill" type="button">
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-error to-error-container"></div>
+<div class="flex items-start justify-between w-full">
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center text-error group-hover:scale-110 transition-transform shadow-inner">
+<span class="material-symbols-outlined text-3xl">delete_forever</span>
+</div>
+<span class="px-space-sm py-1 rounded bg-surface-container-highest font-label-hud text-label-hud text-error font-bold shadow">KEY [3]</span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-error transition-colors">Landfill</span>
+<span class="w-2 h-2 rounded-full bg-error"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Styrofoam packaging, composite snack foils, greasy contaminated paper.</p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">
+<span>Isolated: <strong class="text-error font-bold" id="divertedLandfill">6 units</strong></span>
+<span class="text-error font-bold group-hover:translate-x-1 transition-transform flex items-center gap-0.5">Route <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</button>
+</div>
+</section>
+<!-- SIDEBAR INTELLIGENCE & LEADERBOARDS (4 Columns) -->
+<aside class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Live Telemetry Card: Carbon Avoided -->
+<div class="rounded-xl p-space-md bg-surface-container-low/85 backdrop-blur-xl shadow-xl flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">co2</span>
+<span class="font-label-hud text-label-hud uppercase text-on-surface font-bold">Impact Meter</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high font-label-hud-micro text-label-hud-micro uppercase text-secondary">Verified</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm mb-space-sm">
+<div class="p-space-sm rounded-lg bg-surface-container">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">CO2 Mitigated</span>
+<div class="font-metric-numeral text-metric-numeral font-bold text-primary" id="co2Mitigated">3.42<span class="text-headline-sm font-normal">kg</span></div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Sorting Precision</span>
+<div class="font-metric-numeral text-metric-numeral font-bold text-secondary" id="sortingAccuracy">94.8<span class="text-headline-sm font-normal">%</span></div>
+</div>
+</div>
+<!-- Inline SVG Sparkline -->
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-1">
+<div class="flex items-center justify-between text-on-surface-variant font-label-hud-micro text-label-hud-micro uppercase">
+<span>Speed vs Contamination Trace</span>
+<span class="text-primary font-bold">0.84s / item avg</span>
+</div>
+<svg class="w-full h-12 text-primary" fill="none" viewbox="0 0 240 48">
+<path class="shadow-[0_0_8px_rgba(78,222,163,0.8)]" d="M0 38 Q 30 15, 60 25 T 120 18 T 180 32 T 240 10" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M0 38 Q 30 15, 60 25 T 120 18 T 180 32 T 240 10 L 240 48 L 0 48 Z" fill="currentColor" fill-opacity="0.1"></path>
+</svg>
+</div>
+</div>
+<!-- Ranger Hall of Fame (Leaderboard Widget) -->
+<div class="rounded-xl p-space-md bg-surface-container-low/85 backdrop-blur-xl shadow-xl flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-xl">military_tech</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Sector Champions</span>
+</div>
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant font-bold">Global IDCC #09</span>
+</div>
+<!-- Leaderboard Roster -->
+<div class="space-y-space-xs">
+<!-- Rank 1 (Active User) -->
+<div class="p-space-sm rounded-lg bg-surface-container-high/90 flex items-center justify-between shadow-[0_0_12px_rgba(255,185,95,0.15)]">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-7 h-7 rounded-full bg-tertiary-container text-on-tertiary-container font-label-hud font-bold flex items-center justify-center flex-shrink-0">
+                      1
+                    </div>
+<div class="truncate">
+<div class="font-body-sm text-body-sm font-bold text-on-surface flex items-center gap-1">
+                        Dr. Maya Lin
+                        <span class="px-1 py-0.2 rounded bg-primary/20 text-primary text-[10px] font-bold">YOU</span>
+</div>
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-tertiary font-bold">Lvl 14 Ranger • 84 Streak</span>
+</div>
+</div>
+<span class="font-label-hud text-label-hud font-bold text-tertiary pl-2">8,450 pts</span>
+</div>
+<!-- Rank 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container/60 hover:bg-surface-container flex items-center justify-between transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest text-on-surface font-label-hud font-bold flex items-center justify-center flex-shrink-0">
+                      2
+                    </div>
+<div class="truncate">
+<div class="font-body-sm text-body-sm font-semibold text-on-surface">Ranger Omar Vance</div>
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Sub-Sahara Canopy Node</span>
+</div>
+</div>
+<span class="font-label-hud text-label-hud font-semibold text-on-surface-variant pl-2">7,920 pts</span>
+</div>
+<!-- Rank 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container/60 hover:bg-surface-container flex items-center justify-between transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest text-on-surface font-label-hud font-bold flex items-center justify-center flex-shrink-0">
+                      3
+                    </div>
+<div class="truncate">
+<div class="font-body-sm text-body-sm font-semibold text-on-surface">Sarah Zhang, PE</div>
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Nordic Circular Hub</span>
+</div>
+</div>
+<span class="font-label-hud text-label-hud font-semibold text-on-surface-variant pl-2">7,340 pts</span>
+</div>
+<!-- Rank 4 -->
+<div class="p-space-sm rounded-lg bg-surface-container/60 hover:bg-surface-container flex items-center justify-between transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest text-on-surface font-label-hud font-bold flex items-center justify-center flex-shrink-0">
+                      4
+                    </div>
+<div class="truncate">
+<div class="font-body-sm text-body-sm font-semibold text-on-surface">Kaelen Thorne</div>
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Great Barrier Reef Node</span>
+</div>
+</div>
+<span class="font-label-hud text-label-hud font-semibold text-on-surface-variant pl-2">6,880 pts</span>
+</div>
+</div>
+</div>
+<!-- Pro-Tip HUD Footer -->
+<div class="mt-space-md p-space-sm rounded-lg bg-surface-container flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-base flex-shrink-0 mt-0.5">tips_and_updates</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<strong class="text-on-surface font-semibold">Stewardship Tip:</strong> Pizza boxes soaked with oil must go into Compost if unlined, or Landfill if poly-coated. Never contaminate clean paper recycling!
+              </p>
+</div>
+</div>
+</aside>
+</div>
+<!-- PHOTOREALISTIC FIELD LOG CAROUSEL (Real World Impact) -->
+<section class="w-full mt-space-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary">photo_library</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Verified Landfill Diversion Streams</h3>
+</div>
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Telemetry Station Cam-04</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-container shadow-lg">
+<div class="relative w-full h-44 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="High precision optical sorter conveyor in a state-of-the-art modern recycling recovery facility, emerald laser lights scanning compressed polymers, cinematic lighting, ultra-crisp detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8aQ2IQl0dxra4F0u20UU0juCTaX9-V-wa5RMdorJV92dLI4SWcPZv48pL-uJK0xAdeTAN8bKkDoQi5ZthtHPBwp38lDBfpcXBz56_ukbnZOjIDIk1mfKYjJD8nCHfWr2RPn3jx22ppIrXNAY_8ZI4Rim_WV8xWaYtFLc4PkcsCJrt0trcDS2qDyPxtMYb39Z-5uigUCAp2ysFQV5p3cAHKw7xTAjvHgnke86g-yRYN6ogGv1j75Do"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute top-3 right-3 px-space-xs py-0.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-hud-micro text-label-hud-micro text-primary uppercase font-bold">
+                Optical Sort
+              </div>
+</div>
+<div class="p-space-md">
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface">Polymer Clean Loop</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">HDPE and PET bottles separated for pellet extrusion and zero-virgin polyester manufacturing.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-container shadow-lg">
+<div class="relative w-full h-44 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="High quality industrial organic composting aerator turner in a lush agricultural biosphere facility with deep dark soil and green foliage in soft daylight, volumetric mist, documentary environmental photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtOYF3uEAftciKVoWfV5IuHozrS_rU0YUkr_RbcittZw7E0PeGzBxRugqp7XmRchTEFoC_mFR-v1uwnJcv-2VgkVUWEdgi2iaKJUID3O3V46viLHwGYtvSSYVy0lcPeczc2WlaxCQJesxJd9nrxMfchIN14MKTDWbFwKUsPc6yI-2D7QvwesS46KGxi7GqmsmKjKe9ItZ0h2OsKvKXkhHNBE_FsDRK0SuiKUWRlZgK-5uTPMaW-gq9"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute top-3 right-3 px-space-xs py-0.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-hud-micro text-label-hud-micro text-tertiary uppercase font-bold">
+                Organic Regen
+              </div>
+</div>
+<div class="p-space-md">
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface">Bio-Digester &amp; Humus</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Decomposing peelings and fiber enrich topsoil microbial diversity, preventing toxic anaerobic methane plumes.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-container shadow-lg">
+<div class="relative w-full h-44 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Urban automated sorting robotics arm working alongside precision infrared cameras picking items in a gleaming zero waste facility, teal and deep navy hue accents, hyper realistic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1QYDltIOGMeS0M5pBrLFnrlssdIEgqxTsJGs2zp2VF-keBa1LVXVCO12Rv-TjR4yYO005i_XugsrewZtFg1bm8l3EEXoFpj7mUPQIskdiRkXHPT9RhzFDHxP__eOVt_eekcIyEMjRI5zFIopcnLewcSY7jciS1_QizGQuy1lYeRpZWB8AnvP8baf5ETeptqnZ8EN_m209-jfzLqiAunhZcvHCpKaZYdOZaLEXWaNh0wfSKSPpXoWe"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute top-3 right-3 px-space-xs py-0.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-hud-micro text-label-hud-micro text-secondary uppercase font-bold">
+                Robotic Sort
+              </div>
+</div>
+<div class="p-space-md">
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface">Non-Recyclable Thermal Sink</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Multi-layer foil polymers and contaminated resins isolated into high-efficiency plasma gasification cells.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- GAME OVER / HIGH SCORE MODAL (Embedded Modal with Toggle/Preview Capability) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-margin bg-background/80 backdrop-blur-xl opacity-0 pointer-events-none transition-opacity duration-300" id="gameOverModal">
+<div class="relative w-full max-w-lg bg-surface-container-low rounded-2xl p-space-xl shadow-2xl flex flex-col items-center text-center transform scale-95 transition-transform duration-300" id="modalCard">
+<!-- Top Trophy Emblem -->
+<div class="w-20 h-20 rounded-2xl bg-surface-container-high flex items-center justify-center text-tertiary shadow-[0_0_28px_rgba(255,185,95,0.4)] mb-space-md">
+<span class="material-symbols-outlined text-5xl">rewarded_ads</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-primary-container/20 text-primary font-label-hud-micro text-label-hud-micro uppercase font-bold mb-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+        Sprint Complete
+      </div>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface">Sorting Run Verified</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-sm">Planetary telemetric audit finished. Exceptional circular throughput recorded on IDCC Ledger.</p>
+<!-- Score Breakdown Cluster -->
+<div class="w-full grid grid-cols-2 gap-space-sm my-space-md">
+<div class="p-space-sm rounded-xl bg-surface-container flex flex-col items-center">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant font-bold">Final Score</span>
+<span class="font-headline-lg text-headline-lg font-bold text-primary" id="modalFinalScore">2,840</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container flex flex-col items-center">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant font-bold">Max Combo</span>
+<span class="font-headline-lg text-headline-lg font-bold text-tertiary" id="modalMaxCombo">x7</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container flex flex-col items-center">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant font-bold">Items Diverted</span>
+<span class="font-headline-md text-headline-md font-bold text-secondary" id="modalItemsDiverted">36 units</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container flex flex-col items-center">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant font-bold">Carbon Mitigated</span>
+<span class="font-headline-md text-headline-md font-bold text-tertiary-fixed" id="modalCarbon">4.88 kg CO2</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row items-center gap-space-sm w-full">
+<button class="w-full sm:flex-1 py-space-sm px-space-md rounded-full bg-primary-container hover:bg-secondary-container text-on-primary font-headline-sm text-headline-sm font-bold shadow-[0_0_24px_rgba(16,185,129,0.45)] transition-all hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2" id="modalPlayAgainBtn" type="button">
+<span class="material-symbols-outlined">replay</span>
+<span>Play Again</span>
+</button>
+<button class="w-full sm:w-auto py-space-sm px-space-md rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-body-sm text-body-sm transition-colors" id="modalCloseBtn" type="button">
+          View Arena
+        </button>
+</div>
+</div>
+</div>
+<!-- INTERACTIVE MINI-GAME STATE LOGIC -->
+<script>
+    (function() {
+      // Catalog of falling items
+      const ITEMS = [
+        {
+          name: "Clean PET Plastic Bottle",
+          category: "Plastic Polymers",
+          target: "recycle",
+          hint: "Rinsed food-grade thermoplastic; highly recyclable.",
+          dotColor: "bg-primary",
+          catColor: "text-primary",
+          icon: "water_bottle",
+          alt: "Clean discarded PET clear mineral water bottle in obsidian lab lighting"
+        },
+        {
+          name: "Organic Banana Peel",
+          category: "Bio Organic Scrap",
+          target: "compost",
+          hint: "Nutrient-rich fruit residue ideal for biogenic humus.",
+          dotColor: "bg-tertiary",
+          catColor: "text-tertiary",
+          icon: "eco",
+          alt: "Natural yellow organic banana peel with slight brown specks resting on black slate counter"
+        },
+        {
+          name: "Aluminium Soda Can",
+          category: "Ferrous & Alloys",
+          target: "recycle",
+          hint: "Infinite lifecycle metal; melts with 95% energy savings.",
+          dotColor: "bg-primary",
+          catColor: "text-primary",
+          icon: "local_cafe",
+          alt: "Crushed sleek aluminum soda can resting on dark matte background with vivid aqua rim light"
+        },
+        {
+          name: "Styrofoam Food Box",
+          category: "Poly-Expanded Waste",
+          target: "landfill",
+          hint: "Contaminated foam resin; non-curbside recyclable.",
+          dotColor: "bg-error",
+          catColor: "text-error",
+          icon: "takeout_dining",
+          alt: "White styrofoam takeout clamshell container showing grease stains against obsidian laboratory surface"
+        },
+        {
+          name: "Crisp Apple Core",
+          category: "Bio Organic Scrap",
+          target: "compost",
+          hint: "Cellulose core and natural seeds; converts to rich humus.",
+          dotColor: "bg-tertiary",
+          catColor: "text-tertiary",
+          icon: "nutrition",
+          alt: "Eaten fresh apple core showing natural seeds and stem over dark atmospheric backdrop"
+        },
+        {
+          name: "Soiled Snack Foil Wrap",
+          category: "Metallized Composite",
+          target: "landfill",
+          hint: "Bonded multi-layer polymer cannot be segregated.",
+          dotColor: "bg-error",
+          catColor: "text-error",
+          icon: "cookie",
+          alt: "Crinkled metallic potato chip bag wrapper with reflective silver foil lining"
+        },
+        {
+          name: "Clean Newspaper Roll",
+          category: "Clean Paper / Cardboard",
+          target: "recycle",
+          hint: "Dry de-inkable wood fiber ready for pulp recovery.",
+          dotColor: "bg-primary",
+          catColor: "text-primary",
+          icon: "newspaper",
+          alt: "Rolled stack of clean newsprint paper bound with natural jute twine"
+        }
+      ];
+
+      // Game state variables
+      let score = 1420;
+      let combo = 3;
+      let maxCombo = 3;
+      let timeLeft = 24;
+      let isPaused = false;
+      let soundEnabled = true;
+      let totalDiverted = 36;
+      let counts = { recycle: 18, compost: 12, landfill: 6 };
+      let currentItemIndex = 0;
+      let timerInterval = null;
+
+      // DOM hooks
+      const scoreDisplay = document.getElementById("scoreDisplay");
+      const comboDisplay = document.getElementById("comboDisplay");
+      const timerCircle = document.getElementById("timerCircle");
+      const timerText = document.getElementById("timerText");
+      const timerSubtext = document.getElementById("timerSubtext");
+      const recordDisplay = document.getElementById("recordDisplay");
+      const frenzyBar = document.getElementById("frenzyBar");
+      const frenzyStatus = document.getElementById("frenzyStatus");
+      const co2Mitigated = document.getElementById("co2Mitigated");
+      
+      const fallingItem = document.getElementById("fallingItem");
+      const itemName = document.getElementById("itemName");
+      const itemHint = document.getElementById("itemHint");
+      const itemCategory = document.getElementById("itemCategory");
+      const itemDot = document.getElementById("itemDot");
+      const itemImage = document.getElementById("itemImage");
+      
+      const feedbackBadge = document.getElementById("feedbackBadge");
+      const feedbackText = document.getElementById("feedbackText");
+      const feedbackIcon = document.getElementById("feedbackIcon");
+
+      const divertedRecycle = document.getElementById("divertedRecycle");
+      const divertedCompost = document.getElementById("divertedCompost");
+      const divertedLandfill = document.getElementById("divertedLandfill");
+
+      const pauseBtn = document.getElementById("pauseBtn");
+      const pauseIcon = document.getElementById("pauseIcon");
+      const pauseText = document.getElementById("pauseText");
+      const soundBtn = document.getElementById("soundBtn");
+      const soundIcon = document.getElementById("soundIcon");
+      const soundText = document.getElementById("soundText");
+      const restartBtn = document.getElementById("restartBtn");
+
+      const gameOverModal = document.getElementById("gameOverModal");
+      const modalCard = document.getElementById("modalCard");
+      const modalFinalScore = document.getElementById("modalFinalScore");
+      const modalMaxCombo = document.getElementById("modalMaxCombo");
+      const modalItemsDiverted = document.getElementById("modalItemsDiverted");
+      const modalCarbon = document.getElementById("modalCarbon");
+      const modalPlayAgainBtn = document.getElementById("modalPlayAgainBtn");
+      const modalCloseBtn = document.getElementById("modalCloseBtn");
+
+      // Check localStorage for high score
+      const savedHigh = localStorage.getItem("ecopulse_recycle_record") || "8450";
+      recordDisplay.innerHTML = `${parseInt(savedHigh, 10).toLocaleString()} pts <span class="text-on-surface-variant font-normal">(Dr. Maya Lin)</span>`;
+
+      function renderItem() {
+        const item = ITEMS[currentItemIndex];
+        itemName.textContent = item.name;
+        itemHint.textContent = item.hint;
+        itemCategory.textContent = item.category;
+        itemCategory.className = `font-label-hud-micro text-label-hud-micro uppercase font-bold tracking-wider ${item.catColor}`;
+        itemDot.className = `w-1.5 h-1.5 rounded-full ${item.dotColor}`;
+        itemImage.setAttribute("data-alt", item.alt);
+        
+        // Gentle entrance pop
+        fallingItem.classList.remove("scale-100");
+        fallingItem.classList.add("scale-95");
+        setTimeout(() => {
+          fallingItem.classList.remove("scale-95");
+          fallingItem.classList.add("scale-100");
+        }, 50);
+      }
+
+      function showFeedback(isSuccess, pointsDelta, message) {
+        feedbackBadge.className = `absolute top-10 pointer-events-none transition-all duration-300 z-30 flex items-center gap-2 px-space-md py-1 rounded-full font-label-hud text-label-hud font-bold shadow-2xl opacity-100 transform translate-y-0 ${
+          isSuccess 
+            ? 'bg-primary-container text-on-primary-container shadow-[0_0_20px_rgba(78,222,163,0.6)]' 
+            : 'bg-error-container text-on-error-container shadow-[0_0_20px_rgba(255,180,171,0.5)]'
+        }`;
+        feedbackIcon.textContent = isSuccess ? "check_circle" : "warning";
+        feedbackText.textContent = `${pointsDelta > 0 ? '+' + pointsDelta : pointsDelta} ${message}`;
+
+        setTimeout(() => {
+          feedbackBadge.classList.remove("opacity-100", "translate-y-0");
+          feedbackBadge.classList.add("opacity-0", "-translate-y-4");
+        }, 1200);
+      }
+
+      function handleSort(selectedTarget) {
+        if (isPaused || timeLeft <= 0) return;
+
+        const currentItem = ITEMS[currentItemIndex];
+        const isCorrect = currentItem.target === selectedTarget;
+
+        if (isCorrect) {
+          combo++;
+          if (combo > maxCombo) maxCombo = combo;
+          const gained = 100 * combo;
+          score += gained;
+          counts[selectedTarget]++;
+          totalDiverted++;
+          
+          showFeedback(true, gained, "Perfect Sort!");
+
+          // Frenzy Bar update
+          const frenzyVal = Math.min(100, combo * 14);
+          frenzyBar.style.width = frenzyVal + "%";
+          frenzyStatus.textContent = `Frenzy: ${frenzyVal}%`;
+
+          // Visual pop on score
+          scoreDisplay.classList.add("scale-110", "text-secondary");
+          setTimeout(() => scoreDisplay.classList.remove("scale-110", "text-secondary"), 200);
+
+        } else {
+          combo = 1;
+          score = Math.max(0, score - 50);
+          showFeedback(false, -50, "Contamination Warning!");
+          frenzyBar.style.width = "15%";
+          frenzyStatus.textContent = "Frenzy: 15%";
+        }
+
+        // Update HUD
+        scoreDisplay.textContent = score.toLocaleString();
+        comboDisplay.textContent = `x${combo}`;
+        divertedRecycle.textContent = `${counts.recycle} units`;
+        divertedCompost.textContent = `${counts.compost} units`;
+        divertedLandfill.textContent = `${counts.landfill} units`;
+
+        // Update avoided carbon estimate
+        const co2Calc = (totalDiverted * 0.095).toFixed(2);
+        co2Mitigated.innerHTML = `${co2Calc}<span class="text-headline-sm font-normal">kg</span>`;
+
+        // Move to next item in conveyor queue
+        currentItemIndex = (currentItemIndex + 1) % ITEMS.length;
+        renderItem();
+      }
+
+      // Timer Loop
+      function startTimer() {
+        if (timerInterval) clearInterval(timerInterval);
+        timerInterval = setInterval(() => {
+          if (!isPaused) {
+            timeLeft--;
+            if (timeLeft <= 0) {
+              timeLeft = 0;
+              clearInterval(timerInterval);
+              endGame();
+            }
+            updateTimerHUD();
+          }
+        }, 1000);
+      }
+
+      function updateTimerHUD() {
+        timerText.textContent = `${timeLeft}s`;
+        timerSubtext.textContent = `00:${timeLeft < 10 ? '0' + timeLeft : timeLeft} left`;
+        
+        // Progress dash offset: 30s base
+        const progress = ((30 - timeLeft) / 30) * 100;
+        timerCircle.setAttribute("stroke-dashoffset", progress);
+
+        if (timeLeft <= 5) {
+          timerCircle.classList.remove("text-primary");
+          timerCircle.classList.add("text-error");
+        } else {
+          timerCircle.classList.add("text-primary");
+          timerCircle.classList.remove("text-error");
+        }
+      }
+
+      function endGame() {
+        modalFinalScore.textContent = score.toLocaleString();
+        modalMaxCombo.textContent = `x${maxCombo}`;
+        modalItemsDiverted.textContent = `${totalDiverted} units`;
+        modalCarbon.textContent = `${(totalDiverted * 0.095).toFixed(2)} kg CO2`;
+
+        // Sync local record if exceeded
+        const currentHigh = parseInt(localStorage.getItem("ecopulse_recycle_record") || "8450", 10);
+        if (score > currentHigh) {
+          localStorage.setItem("ecopulse_recycle_record", score.toString());
+          recordDisplay.innerHTML = `${score.toLocaleString()} pts <span class="text-on-surface-variant font-normal">(New Record!)</span>`;
+        }
+
+        // Reveal modal
+        gameOverModal.classList.remove("opacity-0", "pointer-events-none");
+        gameOverModal.classList.add("opacity-100");
+        modalCard.classList.remove("scale-95");
+        modalCard.classList.add("scale-100");
+      }
+
+      function resetGame() {
+        score = 0;
+        combo = 1;
+        maxCombo = 1;
+        timeLeft = 30;
+        isPaused = false;
+        totalDiverted = 0;
+        counts = { recycle: 0, compost: 0, landfill: 0 };
+        
+        scoreDisplay.textContent = "0";
+        comboDisplay.textContent = "x1";
+        divertedRecycle.textContent = "0 units";
+        divertedCompost.textContent = "0 units";
+        divertedLandfill.textContent = "0 units";
+        co2Mitigated.innerHTML = `0.00<span class="text-headline-sm font-normal">kg</span>`;
+        frenzyBar.style.width = "10%";
+        frenzyStatus.textContent = "Frenzy: 10%";
+
+        pauseIcon.textContent = "pause";
+        pauseText.textContent = "Pause";
+
+        // Close modal if open
+        gameOverModal.classList.add("opacity-0", "pointer-events-none");
+        gameOverModal.classList.remove("opacity-100");
+        modalCard.classList.add("scale-95");
+        modalCard.classList.remove("scale-100");
+
+        updateTimerHUD();
+        startTimer();
+        renderItem();
+      }
+
+      // Event listeners for sorting targets
+      document.getElementById("binRecycle").addEventListener("click", () => handleSort("recycle"));
+      document.getElementById("binCompost").addEventListener("click", () => handleSort("compost"));
+      document.getElementById("binLandfill").addEventListener("click", () => handleSort("landfill"));
+
+      // Keyboard Controls: [1], [2], [3]
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "1") handleSort("recycle");
+        if (e.key === "2") handleSort("compost");
+        if (e.key === "3") handleSort("landfill");
+        if (e.key === "p" || e.key === "P") togglePause();
+      });
+
+      // Pause button
+      function togglePause() {
+        isPaused = !isPaused;
+        pauseIcon.textContent = isPaused ? "play_arrow" : "pause";
+        pauseText.textContent = isPaused ? "Resume" : "Pause";
+      }
+      pauseBtn.addEventListener("click", togglePause);
+
+      // Sound FX Toggle
+      soundBtn.addEventListener("click", () => {
+        soundEnabled = !soundEnabled;
+        soundIcon.textContent = soundEnabled ? "volume_up" : "volume_off";
+        soundText.textContent = soundEnabled ? "SFX [On]" : "SFX [Off]";
+      });
+
+      // Restart Button
+      restartBtn.addEventListener("click", resetGame);
+      modalPlayAgainBtn.addEventListener("click", resetGame);
+      modalCloseBtn.addEventListener("click", () => {
+        gameOverModal.classList.add("opacity-0", "pointer-events-none");
+        gameOverModal.classList.remove("opacity-100");
+      });
+
+      // Initialize
+      renderItem();
+      updateTimerHUD();
+      startTimer();
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest/90 backdrop-blur-md mt-auto"><div class="w-full px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start pb-space-lg"><div class="md:col-span-5 space-y-space-sm"><div class="flex items-center gap-space-sm"><img alt="EcoPulse Master Emblem" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XshwQcJAVyaASIBMiQKhwkajiazM4RhzT1EkIVSy-YJqZ96fAu_lHaebrmITxSeVRi2PfR7R5EL1N0Mr-c7EcWvwMxXEcPbkDFie5p3XPqCVzHnFvH36Wdj-OGLQM1evwrClSjvbGVV5AYze7-R0Kym_4_wgKquvStyWm5Gxx28rijkPH8iyHLumvl_3BDgYrDxW-005iJMspVjP1mp01zWlvWYLLQrr8vaXl3FJSK8rhbTpkLTcZp2Bk"/><span class="font-headline-sm text-headline-sm text-on-surface font-bold">EcoPulse</span><span class="px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-label-hud-micro text-label-hud-micro uppercase">v4.2</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">Synthesizing planetary biosensors, high-performance telemetry, and gamified environmental action to accelerate global carbon drawdown initiatives.</p><div class="flex items-center gap-space-xs pt-space-xs"><span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span><span class="font-label-hud text-label-hud text-on-surface-variant uppercase tracking-wider">Sensors Live • 99.8% Grid Sync</span></div></div><div class="md:col-span-4 flex gap-space-xl"><div class="space-y-space-xs"><div class="font-label-hud text-label-hud uppercase tracking-wider text-on-surface font-bold">Modules</div><div class="flex flex-col space-y-1 font-body-sm text-body-sm text-on-surface-variant"><a class="hover:text-primary transition-colors" href="#">Carbon Audits</a><a class="hover:text-primary transition-colors" href="#">Telemetry Feed</a><a class="hover:text-primary transition-colors" href="#">Eco Quests</a><a class="hover:text-primary transition-colors" href="#">Flora Index</a></div></div><div class="space-y-space-xs"><div class="font-label-hud text-label-hud uppercase tracking-wider text-on-surface font-bold">Governance</div><div class="flex flex-col space-y-1 font-body-sm text-body-sm text-on-surface-variant"><a class="hover:text-primary transition-colors" href="#">Telemetry API</a><a class="hover:text-primary transition-colors" href="#">IDCC Protocol</a><a class="hover:text-primary transition-colors" href="#">Climate Trust</a><a class="hover:text-primary transition-colors" href="#">Privacy Node</a></div></div></div><div class="md:col-span-3 flex md:justify-end items-start"><button class="group flex items-center gap-space-xs px-space-md py-space-sm rounded-full bg-surface-container-high hover:bg-surface-container-highest transition-all shadow-[0_1px_8px_rgba(0,0,0,0.2)]" onclick="window.scrollTo({top:0,behavior:'smooth'})" type="button"><span class="font-label-hud text-label-hud uppercase text-on-surface-variant group-hover:text-on-surface transition-colors">Top of Grid</span><span class="material-symbols-outlined text-lg text-primary group-hover:-translate-y-0.5 transition-transform">arrow_upward</span></button></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm font-body-sm text-body-sm text-on-surface-variant"><p>© 2026 EcoPulse Biosphere Initiative. Accredited IDCC Global Node.</p><p class="font-label-hud-micro text-label-hud-micro uppercase tracking-wider text-outline">Obsidian Bio-Telemetry v4.2.1 • All Satellites Nominal</p></div></div></footer></body></html>

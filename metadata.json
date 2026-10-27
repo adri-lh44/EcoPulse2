@@ -1,0 +1,6 @@
+{
+  "name": "EcoPulse - Planetary Stewardship Platform",
+  "description": "Synthesizing planetary biosensors, high-performance telemetry, and gamified environmental action to accelerate global carbon drawdown initiatives.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

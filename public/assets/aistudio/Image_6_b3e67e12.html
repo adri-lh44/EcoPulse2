@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>EcoPulse - Planetary Stewardship Platform</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-fixed-variant": "#005236", "background": "#0c1420", "on-tertiary": "#472a00", "tertiary": "#ffb95f", "primary-fixed": "#6ffbbe", "surface-tint": "#4edea3", "on-surface": "#dbe3f4", "inverse-on-surface": "#29313e", "surface-container-high": "#232a37", "secondary": "#45dfa4", "on-secondary-fixed": "#002114", "error-container": "#93000a", "on-surface-variant": "#bbcabf", "on-primary-container": "#00422b", "primary": "#4edea3", "on-secondary": "#003824", "tertiary-fixed": "#ffddb8", "secondary-container": "#00bd85", "on-primary": "#003824", "on-tertiary-container": "#523200", "surface-dim": "#0c1420", "secondary-fixed": "#68fcbf", "error": "#ffb4ab", "surface-container-lowest": "#070e1a", "surface-container-low": "#141c28", "on-tertiary-fixed-variant": "#653e00", "secondary-fixed-dim": "#45dfa4", "inverse-primary": "#006c49", "tertiary-container": "#e29100", "on-secondary-fixed-variant": "#005137", "on-background": "#dbe3f4", "on-secondary-container": "#00452e", "tertiary-fixed-dim": "#ffb95f", "outline-variant": "#3c4a42", "outline": "#86948a", "on-primary-fixed": "#002113", "on-error-container": "#ffdad6", "primary-container": "#10b981", "surface": "#0c1420", "on-error": "#690005", "inverse-surface": "#dbe3f4", "surface-container-highest": "#2d3542", "on-tertiary-fixed": "#2a1700", "surface-bright": "#323947", "surface-variant": "#2d3542", "surface-container": "#18202c", "primary-fixed-dim": "#4edea3" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "margin-mobile": "1.25rem", "space-xl": "2.5rem", "margin": "3rem", "gutter": "1.5rem", "gutter-mobile": "1rem", "space-lg": "1.5rem", "space-md": "1rem", "space-sm": "0.5rem" }, "fontFamily": { "headline-md": ["Outfit"], "body-lg": ["Plus Jakarta Sans"], "display-hero-mobile": ["Outfit"], "body-md": ["Plus Jakarta Sans"], "label-hud": ["Space Grotesk"], "headline-sm": ["Outfit"], "headline-lg": ["Outfit"], "display-hero": ["Outfit"], "label-hud-micro": ["Space Grotesk"], "headline-lg-mobile": ["Outfit"], "metric-numeral": ["Outfit"], "body-sm": ["Plus Jakarta Sans"] }, "fontSize": { "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }], "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "label-hud": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }], "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "label-hud-micro": ["10px", { "lineHeight": "14px", "letterSpacing": "0.12em", "fontWeight": "700" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "metric-numeral": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400" }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-20 w-full px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg flex-shrink-0"><div class="flex items-center gap-space-sm"><img alt="EcoPulse Master Emblem" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XshwQcJAVyaASIBMiQKhwkajiazM4RhzT1EkIVSy-YJqZ96fAu_lHaebrmITxSeVRi2PfR7R5EL1N0Mr-c7EcWvwMxXEcPbkDFie5p3XPqCVzHnFvH36Wdj-OGLQM1evwrClSjvbGVV5AYze7-R0Kym_4_wgKquvStyWm5Gxx28rijkPH8iyHLumvl_3BDgYrDxW-005iJMspVjP1mp01zWlvWYLLQrr8vaXl3FJSK8rhbTpkLTcZp2Bk"/><span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">EcoPulse</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container-high shadow-[0_0_12px_rgba(16,185,129,0.2)]"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-label-hud-micro text-label-hud-micro uppercase text-primary font-bold tracking-wider">IDCC 2026 Edition</span></div></div><nav class="hidden lg:flex items-center gap-space-xs p-1 bg-surface-container-low/80 backdrop-blur-md rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(16,185,129,0.35)]"><a class="px-space-md py-space-xs rounded-full font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="dashboard" href="#">Dashboard</a><a aria-current="page" class="px-space-md py-space-xs rounded-full transition-all bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(16,185,129,0.35)]" data-path="eco-tracker" href="#">Eco-Tracker &amp; Footprint</a><a class="px-space-md py-space-xs rounded-full font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="recycle-rush" href="#">Recycle Rush</a><a class="px-space-md py-space-xs rounded-full font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="heritage-trail" href="#">Heritage &amp; Eco-Trail</a><a class="px-space-md py-space-xs rounded-full font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="focus-timer" href="#">Focus &amp; Productivity</a></nav><div class="flex items-center gap-space-md flex-shrink-0"><div class="hidden 2xl:flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-high/70 backdrop-blur-md"><div class="flex flex-col"><div class="flex items-center justify-between gap-space-sm"><span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Lvl 14 Ranger</span><span class="font-label-hud text-label-hud text-primary font-bold">2,840 XP</span></div><div class="w-28 h-1.5 rounded-full bg-surface-container-highest overflow-hidden mt-0.5"><div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full w-3/4 shadow-[0_0_8px_rgba(78,222,163,0.5)]"></div></div></div></div><button aria-label="Toggle theme" class="w-10 h-10 rounded-full bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">wb_sunny</span></button><button aria-label="Notifications" class="relative w-10 h-10 rounded-full bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary ring-2 ring-surface shadow-[0_0_6px_rgba(78,222,163,0.8)]"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="relative flex-shrink-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-primary/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV0iYBq6XXo3W7B6ZmpZ5qJ_wNddNqFe4ePw-9TdGLXdsrXdNgKoKKpXWN1mPTqEmoZnO8PTUjeqv4uBlB2sq6i7Gkg-wQdq680sjxqnLyeXJJsso-Rq7RRUOtpW2KZLLTmdyJ9_3J-Ru7kvJMjMZ0wkfnl6laORzekWINaDHNMqEzcJzG5To3H-rR5AG_SXkDqzcIDQ2wndkgmkM-Ao-bPLGa2OFYcpniziS9NhLkxy__BKdSJ6gu"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface"></span></div><div class="hidden md:flex flex-col text-left"><span class="font-body-sm text-body-sm font-semibold text-on-surface leading-none">Dr. Maya Lin</span><span class="font-label-hud-micro text-label-hud-micro text-secondary font-medium tracking-wide mt-0.5">Eco-Active</span></div></div></div></div></header><main class="w-full pt-20 bg-background flex-1"><div class="flex flex-col w-full">
+<!-- Dynamic Atmospheric Glow Background Vectors -->
+<div class="relative w-full overflow-hidden px-margin-mobile md:px-margin py-space-xl">
+<div class="absolute -top-32 left-1/4 w-96 h-96 rounded-full bg-primary/10 blur-[120px] pointer-events-none"></div>
+<div class="absolute top-1/2 -right-20 w-80 h-80 rounded-full bg-tertiary/10 blur-[140px] pointer-events-none"></div>
+<div class="absolute bottom-10 left-10 w-96 h-96 rounded-full bg-secondary-container/10 blur-[130px] pointer-events-none"></div>
+<!-- Editorial Header HUD Cluster -->
+<div class="relative z-10 max-w-7xl mx-auto mb-space-xl">
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-sm">
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high/80 backdrop-blur-md shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-hud-micro text-label-hud-micro text-primary uppercase font-bold tracking-widest">Al Ghaf Biosphere Telemetry • UAE Baseline 2026</span>
+</div>
+<div class="flex items-center gap-space-md font-label-hud-micro text-label-hud-micro text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-secondary">satellite_alt</span> SATELLITE SYNC: NOMINAL</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-tertiary">wb_sunny</span> SOLAR INDEX: 9.4 UV</span>
+</div>
+</div>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">
+            Eco-Tracker &amp; UAE Carbon Footprint Simulator
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mt-space-xs">
+            Adjust your daily lifestyle parameters to simulate your environmental impact and nurture your digital Ghaf Tree in real time.
+          </p>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container-low/90 backdrop-blur-md px-space-md py-space-sm rounded-xl shadow-md">
+<div class="w-3 h-10 rounded-full bg-gradient-to-b from-primary via-secondary to-tertiary"></div>
+<div>
+<div class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant tracking-wider">Region Baseline</div>
+<div class="font-label-hud text-label-hud text-on-surface font-bold">5.53 kg CO₂e / Cap / Day</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 2-Column Desktop Architecture -->
+<div class="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- LEFT COLUMN: Lifestyle Simulator -->
+<section class="lg:col-span-7 flex flex-col gap-space-lg bg-surface-container-low/80 backdrop-blur-2xl p-space-lg rounded-xl shadow-xl">
+<!-- Module Header with live micro-indicator -->
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shadow-inner">
+<span class="material-symbols-outlined text-lg">tune</span>
+</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Telemetry Adjustment Console</h2>
+<p class="font-label-hud-micro text-label-hud-micro text-on-surface-variant uppercase tracking-wider">Input your current lifestyle parameters</p>
+</div>
+</div>
+<span class="font-label-hud text-label-hud px-space-sm py-1 rounded-full bg-primary/10 text-primary uppercase font-bold tracking-wider">Active Stream</span>
+</div>
+<!-- Section 1: Daily Transport Mode Selector -->
+<div class="space-y-space-sm">
+<div class="flex justify-between items-center">
+<label class="font-headline-sm text-body-md font-semibold text-on-surface flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-base">directions_transit</span>
+              1. Daily Commute &amp; Transport Mode
+            </label>
+<span class="font-label-hud text-label-hud text-primary font-bold" id="transport-readout">0.40 kg CO₂e</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-xs" id="transport-group">
+<button class="transport-btn group flex flex-col items-start p-space-sm rounded-lg bg-surface-container-high/60 hover:bg-surface-container-high text-left transition-all" data-label="0.00 kg CO₂e" data-val="0.0" type="button">
+<span class="material-symbols-outlined text-xl text-on-surface-variant group-hover:text-primary mb-space-xs">pedal_bike</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Walk / Cycle</span>
+<span class="font-label-hud-micro text-label-hud-micro text-on-surface-variant">0 kg CO₂e</span>
+</button>
+<button class="transport-btn active group flex flex-col items-start p-space-sm rounded-lg bg-primary-container text-on-primary-container shadow-md text-left transition-all" data-label="0.40 kg CO₂e" data-val="0.4" type="button">
+<span class="material-symbols-outlined text-xl mb-space-xs">tram</span>
+<span class="font-body-sm text-body-sm font-semibold">Metro / EV Transit</span>
+<span class="font-label-hud-micro text-label-hud-micro opacity-80">+0.4 kg CO₂e</span>
+</button>
+<button class="transport-btn group flex flex-col items-start p-space-sm rounded-lg bg-surface-container-high/60 hover:bg-surface-container-high text-left transition-all" data-label="1.80 kg CO₂e" data-val="1.8" type="button">
+<span class="material-symbols-outlined text-xl text-on-surface-variant group-hover:text-primary mb-space-xs">electric_car</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Hybrid Fleet</span>
+<span class="font-label-hud-micro text-label-hud-micro text-on-surface-variant">+1.8 kg CO₂e</span>
+</button>
+<button class="transport-btn group flex flex-col items-start p-space-sm rounded-lg bg-surface-container-high/60 hover:bg-surface-container-high text-left transition-all" data-label="4.20 kg CO₂e" data-val="4.2" type="button">
+<span class="material-symbols-outlined text-xl text-on-surface-variant group-hover:text-primary mb-space-xs">directions_car</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Solo Petrol</span>
+<span class="font-label-hud-micro text-label-hud-micro text-on-surface-variant">+4.2 kg CO₂e</span>
+</button>
+</div>
+</div>
+<!-- Section 2: Water Conservation Habits -->
+<div class="space-y-space-sm">
+<div class="flex justify-between items-center">
+<label class="font-headline-sm text-body-md font-semibold text-on-surface flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-base">water_drop</span>
+              2. Water Conservation Habits
+            </label>
+<span class="font-label-hud text-label-hud text-secondary font-bold" id="water-readout">0.35 kg CO₂e (45L)</span>
+</div>
+<div class="space-y-space-xs">
+<label class="water-opt flex items-center justify-between p-space-sm rounded-lg bg-surface-container cursor-pointer hover:bg-surface-container-high transition-all">
+<div class="flex items-center gap-space-sm">
+<input class="accent-primary w-4 h-4" data-label="0.12 kg CO₂e (18L)" name="water-habit" type="radio" value="0.12"/>
+<div>
+<div class="font-body-sm text-body-sm font-semibold text-on-surface">5-min Eco-Shower with aerator</div>
+<div class="font-label-hud-micro text-label-hud-micro text-on-surface-variant">Optimal flow regulator, 18 liters total</div>
+</div>
+</div>
+<span class="font-label-hud-micro text-label-hud-micro text-secondary font-bold px-space-xs py-0.5 rounded bg-secondary/10">Optimum</span>
+</label>
+<label class="water-opt flex items-center justify-between p-space-sm rounded-lg bg-surface-container-high cursor-pointer hover:bg-surface-container-highest transition-all">
+<div class="flex items-center gap-space-sm">
+<input checked="" class="accent-primary w-4 h-4" data-label="0.35 kg CO₂e (45L)" name="water-habit" type="radio" value="0.35"/>
+<div>
+<div class="font-body-sm text-body-sm font-semibold text-on-surface">Conscious 10-min wash</div>
+<div class="font-label-hud-micro text-label-hud-micro text-on-surface-variant">Moderate consumption, non-aerated head</div>
+</div>
+</div>
+<span class="font-label-hud-micro text-label-hud-micro text-on-surface-variant font-bold px-space-xs py-0.5 rounded bg-surface-container-lowest">Standard</span>
+</label>
+<label class="water-opt flex items-center justify-between p-space-sm rounded-lg bg-surface-container cursor-pointer hover:bg-surface-container-high transition-all">
+<div class="flex items-center gap-space-sm">
+<input class="accent-primary w-4 h-4" data-label="1.10 kg CO₂e (120L)" name="water-habit" type="radio" value="1.10"/>
+<div>
+<div class="font-body-sm text-body-sm font-semibold text-on-surface">High flow unchecked bath</div>
+<div class="font-label-hud-micro text-label-hud-micro text-error">Unregulated pressure, full immersion basin</div>
+</div>
+</div>
+<span class="font-label-hud-micro text-label-hud-micro text-error font-bold px-space-xs py-0.5 rounded bg-error/10">Deficit</span>
+</label>
+</div>
+</div>
+<!-- Section 3: Waste & Recycling Habits -->
+<div class="space-y-space-sm">
+<div class="flex justify-between items-center">
+<label class="font-headline-sm text-body-md font-semibold text-on-surface flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-base">recycling</span>
+              3. Waste &amp; Material Recovery Habits
+            </label>
+<span class="font-label-hud text-label-hud text-primary font-bold" id="waste-readout">0.45 kg CO₂e</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-xs">
+<button class="waste-btn group p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-left transition-all" data-label="0.05 kg CO₂e" data-val="0.05" type="button">
+<div class="font-label-hud-micro text-label-hud-micro text-primary uppercase font-bold tracking-wider mb-0.5">100% Recovery</div>
+<div class="font-body-sm text-body-sm font-semibold text-on-surface">Zero-Waste Champion</div>
+<div class="font-label-hud-micro text-label-hud-micro text-on-surface-variant mt-1">Compost + full sorting</div>
+</button>
+<button class="waste-btn active p-space-sm rounded-lg bg-primary-container text-on-primary-container shadow-md text-left transition-all" data-label="0.45 kg CO₂e" data-val="0.45" type="button">
+<div class="font-label-hud-micro text-label-hud-micro uppercase font-bold tracking-wider mb-0.5 opacity-90">60-80% Recovery</div>
+<div class="font-body-sm text-body-sm font-semibold">Active Sorter</div>
+<div class="font-label-hud-micro text-label-hud-micro opacity-80 mt-1">Plastics &amp; carton bins</div>
+</button>
+<button class="waste-btn group p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-left transition-all" data-label="1.30 kg CO₂e" data-val="1.30" type="button">
+<div class="font-label-hud-micro text-label-hud-micro text-error uppercase font-bold tracking-wider mb-0.5">&lt;10% Recovery</div>
+<div class="font-body-sm text-body-sm font-semibold text-on-surface">Casual Disposal</div>
+<div class="font-label-hud-micro text-label-hud-micro text-on-surface-variant mt-1">Single stream landfill</div>
+</button>
+</div>
+</div>
+<!-- Section 4: Diet & Energy Optional Toggles -->
+<div class="space-y-space-sm">
+<label class="font-headline-sm text-body-md font-semibold text-on-surface flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-base">bolt</span>
+            4. Micro-Actions: Diet &amp; Ambient Climate Control
+          </label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<label class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-high/60 hover:bg-surface-container-high cursor-pointer transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-tertiary">eco</span>
+<div>
+<div class="font-body-sm text-body-sm font-semibold text-on-surface">Plant-forward meals today</div>
+<div class="font-label-hud-micro text-label-hud-micro text-on-surface-variant">Drawdown: -0.65 kg CO₂e</div>
+</div>
+</div>
+<input checked="" class="w-5 h-5 rounded accent-primary cursor-pointer" id="toggle-diet" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-high/60 hover:bg-surface-container-high cursor-pointer transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary">mode_fan</span>
+<div>
+<div class="font-body-sm text-body-sm font-semibold text-on-surface">AC set to 24°C eco-mode</div>
+<div class="font-label-hud-micro text-label-hud-micro text-on-surface-variant">Drawdown: -0.45 kg CO₂e</div>
+</div>
+</div>
+<input checked="" class="w-5 h-5 rounded accent-primary cursor-pointer" id="toggle-ac" type="checkbox"/>
+</label>
+</div>
+</div>
+<!-- Simulator Result & Action HUD -->
+<div class="mt-space-sm p-space-md rounded-xl bg-surface-container-highest/60 backdrop-blur-md flex flex-col md:flex-row items-center justify-between gap-space-md shadow-inner">
+<div class="w-full md:w-auto">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant tracking-wider block">Estimated Ecological Drawdown</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-metric-numeral text-metric-numeral font-bold text-primary" id="calculated-footprint">2.10</span>
+<span class="font-label-hud text-label-hud text-on-surface">kg CO₂e / day</span>
+</div>
+<div class="font-label-hud-micro text-label-hud-micro text-secondary font-semibold flex items-center gap-1 mt-0.5" id="comparison-badge">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+<span>62% lower than national average (5.53 kg)</span>
+</div>
+</div>
+<button class="w-full md:w-auto px-space-lg py-space-sm rounded-full bg-gradient-to-r from-primary-container to-secondary-container hover:from-primary hover:to-secondary text-on-primary-container hover:text-on-primary font-label-hud text-label-hud uppercase font-bold tracking-wider transition-all flex items-center justify-center gap-space-xs shadow-lg" id="recalculate-btn" type="button">
+<span class="material-symbols-outlined text-base">sync</span>
+<span>Recalculate Biome Score</span>
+</button>
+</div>
+</section>
+<!-- RIGHT COLUMN: Gamified Ghaf Tree Growth Visualizer -->
+<section class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Main Ghaf Card Container -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low/90 backdrop-blur-2xl shadow-xl flex flex-col">
+<!-- Top HUD Meta Bar -->
+<div class="px-space-md pt-space-md pb-space-xs flex items-center justify-between z-20">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary shadow-sm"></span>
+<span class="font-label-hud-micro text-label-hud-micro uppercase tracking-wider text-on-surface font-bold">Prosopis Cineraria Node #84</span>
+</div>
+<div class="px-space-xs py-0.5 rounded bg-surface-container-high font-label-hud-micro text-label-hud-micro text-tertiary font-bold tracking-widest uppercase">
+              Endemic UAE Bio-Sentinel
+            </div>
+</div>
+<!-- Stage Progress Step Indicator (1 to 4) -->
+<div class="px-space-md py-space-xs z-20">
+<div class="grid grid-cols-4 gap-space-xs text-center">
+<div class="stage-step flex flex-col items-center gap-1" data-stage="1">
+<div class="w-full h-1.5 rounded-full bg-primary shadow-sm"></div>
+<span class="font-label-hud-micro text-label-hud-micro text-on-surface font-semibold">1. Seedling</span>
+</div>
+<div class="stage-step flex flex-col items-center gap-1" data-stage="2">
+<div class="w-full h-1.5 rounded-full bg-primary shadow-sm"></div>
+<span class="font-label-hud-micro text-label-hud-micro text-on-surface font-semibold">2. Sprout</span>
+</div>
+<div class="stage-step flex flex-col items-center gap-1" data-stage="3">
+<div class="w-full h-1.5 rounded-full bg-primary shadow-sm"></div>
+<span class="font-label-hud-micro text-label-hud-micro text-on-surface font-semibold">3. Sapling</span>
+</div>
+<div class="stage-step active flex flex-col items-center gap-1" data-stage="4">
+<div class="w-full h-1.5 rounded-full bg-tertiary shadow-sm"></div>
+<span class="font-label-hud-micro text-label-hud-micro text-tertiary font-bold">4. Majestic</span>
+</div>
+</div>
+</div>
+<!-- Dynamic Visual Display: The Living Ghaf Tree Biome -->
+<div class="relative w-full h-96 flex items-center justify-center overflow-hidden bg-gradient-to-b from-surface-container-lowest via-surface-container-low to-background">
+<!-- Ambient Desert Dusk Glow -->
+<div class="absolute inset-0 bg-radial from-tertiary/10 via-transparent to-transparent opacity-60"></div>
+<!-- Bio-Luminescent Particles Background SVG -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-40" xmlns="http://www.w3.org/2000/svg">
+<circle class="animate-ping" cx="15%" cy="30%" fill="#4edea3" r="2" style="animation-duration: 3s;"></circle>
+<circle class="animate-pulse" cx="78%" cy="25%" fill="#ffb95f" r="1.5" style="animation-duration: 2.2s;"></circle>
+<circle class="animate-pulse" cx="85%" cy="65%" fill="#45dfa4" r="2.5" style="animation-duration: 4s;"></circle>
+<circle class="animate-ping" cx="22%" cy="75%" fill="#6ffbbe" r="1" style="animation-duration: 5s;"></circle>
+<circle class="animate-pulse" cx="50%" cy="15%" fill="#ffddb8" r="2" style="animation-duration: 3.5s;"></circle>
+</svg>
+<!-- Vector Root Network into Desert Sand Base -->
+<div class="absolute bottom-0 w-full h-24 bg-gradient-to-t from-surface-container-high/90 to-transparent flex items-end justify-center">
+<svg class="w-full h-16 text-outline-variant/40" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 400 60">
+<path d="M200 10 Q190 35 150 55 M200 10 Q215 30 260 55 M200 10 Q180 40 120 50 M200 10 Q225 38 290 48 M150 55 Q130 58 100 60 M260 55 Q290 58 330 60"></path>
+</svg>
+</div>
+<!-- Majestic Ghaf Tree Custom Render Canvas SVG -->
+<div class="relative z-10 w-80 h-80 flex items-center justify-center transition-all duration-700 transform hover:scale-105" id="tree-container">
+<svg class="w-full h-full" fill="none" viewbox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+<!-- Deep Taproot -->
+<path d="M160 250 L160 295" stroke="#3c4a42" stroke-linecap="round" stroke-width="4"></path>
+<path d="M160 265 Q145 285 125 300" stroke="#3c4a42" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M160 270 Q175 288 198 302" stroke="#3c4a42" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Trunk & Bark Texture -->
+<path d="M152 250 C154 200, 142 165, 150 130 C155 105, 160 90, 160 85" stroke="#2d3542" stroke-linecap="round" stroke-width="12"></path>
+<path d="M152 250 C154 200, 142 165, 150 130 C155 105, 160 90, 160 85" stroke="#4edea3" stroke-dasharray="6 8" stroke-opacity="0.3" stroke-width="1.5"></path>
+<!-- Primary Branches -->
+<path d="M150 155 Q120 135 95 115" stroke="#2d3542" stroke-linecap="round" stroke-width="7"></path>
+<path d="M155 140 Q188 120 225 105" stroke="#2d3542" stroke-linecap="round" stroke-width="7"></path>
+<path d="M152 110 Q130 90 110 70" stroke="#2d3542" stroke-linecap="round" stroke-width="5"></path>
+<path d="M158 100 Q180 80 205 60" stroke="#2d3542" stroke-linecap="round" stroke-width="5"></path>
+<!-- Foliage Canopy Micro-Clouds (Dense Biophilic Luminescence) -->
+<!-- Foliage Left -->
+<circle cx="95" cy="115" fill="#00422b" fill-opacity="0.75" r="28"></circle>
+<circle cx="85" cy="105" fill="#10b981" fill-opacity="0.65" r="22"></circle>
+<circle cx="100" cy="98" fill="#4edea3" fill-opacity="0.45" r="18"></circle>
+<!-- Foliage Right -->
+<circle cx="225" cy="105" fill="#00422b" fill-opacity="0.75" r="32"></circle>
+<circle cx="235" cy="95" fill="#10b981" fill-opacity="0.7" r="24"></circle>
+<circle cx="215" cy="85" fill="#4edea3" fill-opacity="0.5" r="20"></circle>
+<!-- Foliage Central Apex -->
+<circle cx="160" cy="70" fill="#00422b" fill-opacity="0.8" r="36"></circle>
+<circle cx="145" cy="55" fill="#10b981" fill-opacity="0.7" r="28"></circle>
+<circle cx="175" cy="55" fill="#4edea3" fill-opacity="0.6" r="26"></circle>
+<circle cx="160" cy="42" fill="#6ffbbe" fill-opacity="0.4" r="18"></circle>
+<!-- Radiant Desert Sunlight Spark on Canopy Crown -->
+<circle class="animate-pulse" cx="160" cy="40" fill="#ffb95f" r="6"></circle>
+<!-- Desert Gazelle (Arabian Sand Gazelle resting near roots) -->
+<g transform="translate(68, 222) scale(0.65)">
+<!-- Body -->
+<path d="M20 25 Q35 15 50 25 Q58 35 48 42 L22 42 Z" fill="#ffb95f" fill-opacity="0.85"></path>
+<!-- Graceful Neck & Head -->
+<path d="M48 28 Q52 10 58 5 Q64 3 66 8 Q60 18 52 30 Z" fill="#ffddb8"></path>
+<!-- Curved Horns -->
+<path d="M60 4 Q63 -5 68 -8" stroke="#dbe3f4" stroke-linecap="round" stroke-width="2"></path>
+<!-- Legs -->
+<path d="M24 42 L22 55 M46 42 L48 55" stroke="#ffb95f" stroke-width="2"></path>
+</g>
+<!-- Hoopoe Bird perched on eastern bough -->
+<g transform="translate(205, 78) scale(0.55)">
+<!-- Body -->
+<path d="M10 20 Q20 15 32 24 L22 32 Z" fill="#ffb95f"></path>
+<!-- Tail Feathers with signature black/white accents -->
+<path d="M10 20 L2 28 L6 30 Z" fill="#2d3542"></path>
+<!-- Head & Crown Crest -->
+<circle cx="34" cy="18" fill="#ffddb8" r="5"></circle>
+<path d="M32 14 L36 4 L38 15" stroke="#ffb95f" stroke-width="2"></path>
+<path d="M38 19 L48 21" stroke="#2d3542" stroke-linecap="round" stroke-width="1.5"></path>
+</g>
+</svg>
+</div>
+<!-- Floating Feedback Toast / Live Particle Spawner -->
+<div class="absolute inset-0 pointer-events-none flex items-center justify-center" id="water-fx-layer"></div>
+<!-- Ambient Status Indicator Badge on tree base -->
+<div class="absolute bottom-3 left-4 flex items-center gap-space-xs bg-surface-container-high/80 backdrop-blur-md px-space-sm py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-hud-micro text-label-hud-micro text-on-surface font-semibold uppercase tracking-wider">Arabian Oryx &amp; Hoopoe Protected</span>
+</div>
+</div>
+<!-- Bottom HUD Stats & Direct Action -->
+<div class="p-space-md bg-surface-container space-y-space-sm">
+<!-- Vitality Bar Cluster -->
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-hud text-label-hud text-on-surface uppercase font-bold tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-sm">vital_signs</span>
+                  Vitality Gauge
+                </span>
+<span class="font-label-hud text-label-hud text-primary font-bold" id="vitality-val">88% • Thriving Oasis Tier</span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container-lowest overflow-hidden p-0.5">
+<div class="h-full rounded-full bg-gradient-to-r from-secondary-container via-primary to-tertiary transition-all duration-500 shadow-sm" id="vitality-bar" style="width: 88%;"></div>
+</div>
+</div>
+<!-- Interactive Direct Action Bar -->
+<div class="pt-space-xs flex items-center gap-space-sm">
+<button class="flex-1 py-space-sm px-space-md rounded-full bg-surface-container-high hover:bg-surface-container-highest text-primary hover:text-primary-fixed font-label-hud text-label-hud uppercase font-bold tracking-wider flex items-center justify-center gap-space-xs transition-all shadow-md group" id="water-ghaf-btn" type="button">
+<span class="material-symbols-outlined text-xl text-secondary group-hover:scale-125 transition-transform">water_drop</span>
+<span>Water Virtual Ghaf (+5 XP)</span>
+</button>
+<div class="px-space-md py-space-sm rounded-full bg-surface-container-lowest flex items-center gap-1 font-label-hud text-label-hud text-tertiary font-bold shadow-inner">
+<span class="material-symbols-outlined text-sm">stars</span>
+<span id="arborist-xp">2,840 XP</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Biosphere Context Card -->
+<div class="p-space-md rounded-xl bg-surface-container-low/70 backdrop-blur-md flex items-center gap-space-md shadow-sm">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex-shrink-0 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">park</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-body-sm text-body-sm font-bold text-on-surface truncate">Why the National Ghaf Matters</h3>
+<p class="font-label-hud-micro text-label-hud-micro text-on-surface-variant line-clamp-2">
+              With taproots penetrating up to 30 meters beneath Dubai dunes, each mature Ghaf stabilizes moving sands and sequesters 34kg of CO₂ annually.
+            </p>
+</div>
+</div>
+</section>
+</div>
+<!-- Unlockable Badges & Achievements Section (Bottom) -->
+<section class="relative z-10 max-w-7xl mx-auto mt-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-xs mb-space-md">
+<div>
+<div class="flex items-center gap-space-xs mb-1">
+<span class="material-symbols-outlined text-tertiary text-lg">military_tech</span>
+<span class="font-label-hud-micro text-label-hud-micro text-tertiary uppercase font-bold tracking-widest">Planetary Stewardship Honors</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">
+            Stewardship Badges &amp; Environmental Feats
+          </h2>
+</div>
+<div class="font-label-hud text-label-hud text-on-surface-variant">
+          Progress: <span class="text-primary font-bold">4 Unlocked</span> / 2 Locked
+        </div>
+</div>
+<!-- Badge Grid (6 Badges) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
+<!-- Badge 1: Water Guardian (Unlocked) -->
+<div class="relative group p-space-md rounded-xl bg-surface-container-low/90 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-md">
+<div class="flex items-start gap-space-md">
+<div class="relative w-14 h-14 rounded-xl bg-secondary/15 flex items-center justify-center text-secondary flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-3xl">water_damage</span>
+<span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-secondary flex items-center justify-center text-on-secondary text-[9px] font-bold">✓</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md font-bold text-on-surface truncate">Water Guardian</span>
+<span class="px-space-xs py-0.5 rounded bg-secondary/20 text-secondary font-label-hud-micro text-label-hud-micro uppercase font-bold">+150 XP</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 line-clamp-1">Saved 500L water via low-flow aeration</p>
+<div class="mt-space-xs flex items-center gap-space-xs font-label-hud-micro text-label-hud-micro text-secondary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Unlocked on 14 Feb 2026</span>
+</div>
+</div>
+</div>
+<!-- Tooltip on hover -->
+<div class="hidden group-hover:block absolute bottom-full left-4 mb-2 z-30 w-64 p-space-sm rounded-lg bg-surface-container-highest text-on-surface shadow-2xl font-label-hud-micro text-label-hud-micro">
+            Verified via smart meter sync: Maintained sub-40L daily consumption across 14 consecutive observation cycles.
+          </div>
+</div>
+<!-- Badge 2: Metro Nomad (Unlocked) -->
+<div class="relative group p-space-md rounded-xl bg-surface-container-low/90 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-md">
+<div class="flex items-start gap-space-md">
+<div class="relative w-14 h-14 rounded-xl bg-primary/15 flex items-center justify-center text-primary flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-3xl">directions_subway</span>
+<span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-primary flex items-center justify-center text-on-primary text-[9px] font-bold">✓</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md font-bold text-on-surface truncate">Metro Nomad</span>
+<span class="px-space-xs py-0.5 rounded bg-primary/20 text-primary font-label-hud-micro text-label-hud-micro uppercase font-bold">+200 XP</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 line-clamp-1">10 consecutive public transit commutes</p>
+<div class="mt-space-xs flex items-center gap-space-xs font-label-hud-micro text-label-hud-micro text-primary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Unlocked on 28 Feb 2026</span>
+</div>
+</div>
+</div>
+<div class="hidden group-hover:block absolute bottom-full left-4 mb-2 z-30 w-64 p-space-sm rounded-lg bg-surface-container-highest text-on-surface shadow-2xl font-label-hud-micro text-label-hud-micro">
+            Valid transit card handshake: Replaced 140km of highway combustion travel with zero-emission Red Line metro transits.
+          </div>
+</div>
+<!-- Badge 3: Carbon Cutter (Unlocked) -->
+<div class="relative group p-space-md rounded-xl bg-surface-container-low/90 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-md">
+<div class="flex items-start gap-space-md">
+<div class="relative w-14 h-14 rounded-xl bg-primary-container/25 flex items-center justify-center text-primary flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-3xl">energy_savings_leaf</span>
+<span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-primary flex items-center justify-center text-on-primary text-[9px] font-bold">✓</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md font-bold text-on-surface truncate">Carbon Cutter</span>
+<span class="px-space-xs py-0.5 rounded bg-primary/20 text-primary font-label-hud-micro text-label-hud-micro uppercase font-bold">+350 XP</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 line-clamp-1">Kept footprint under 3kg for full week</p>
+<div class="mt-space-xs flex items-center gap-space-xs font-label-hud-micro text-label-hud-micro text-primary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Unlocked on 03 Mar 2026</span>
+</div>
+</div>
+</div>
+<div class="hidden group-hover:block absolute bottom-full left-4 mb-2 z-30 w-64 p-space-sm rounded-lg bg-surface-container-highest text-on-surface shadow-2xl font-label-hud-micro text-label-hud-micro">
+            Audit criteria: Maintained sub-3.0 kg aggregate footprint without carbon debt spikes over 7 consecutive days.
+          </div>
+</div>
+<!-- Badge 4: Ghaf Arborist (Unlocked) -->
+<div class="relative group p-space-md rounded-xl bg-surface-container-low/90 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-md">
+<div class="flex items-start gap-space-md">
+<div class="relative w-14 h-14 rounded-xl bg-tertiary/20 flex items-center justify-center text-tertiary flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-3xl">nature</span>
+<span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-tertiary flex items-center justify-center text-on-tertiary text-[9px] font-bold">✓</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md font-bold text-on-surface truncate">Ghaf Arborist</span>
+<span class="px-space-xs py-0.5 rounded bg-tertiary/20 text-tertiary font-label-hud-micro text-label-hud-micro uppercase font-bold">+500 XP</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 line-clamp-1">Grew majestic tree to final Stage 4</p>
+<div class="mt-space-xs flex items-center gap-space-xs font-label-hud-micro text-label-hud-micro text-tertiary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Active Champion Sentinel</span>
+</div>
+</div>
+</div>
+<div class="hidden group-hover:block absolute bottom-full left-4 mb-2 z-30 w-64 p-space-sm rounded-lg bg-surface-container-highest text-on-surface shadow-2xl font-label-hud-micro text-label-hud-micro">
+            Culmination accomplishment: Complete digital lifecycle nourished by genuine daily carbon reduction habits.
+          </div>
+</div>
+<!-- Badge 5: Solar Vanguard (Locked) -->
+<div class="relative group p-space-md rounded-xl bg-surface-container-low/40 backdrop-blur-md opacity-70 hover:opacity-100 transition-all shadow-sm">
+<div class="flex items-start gap-space-md">
+<div class="relative w-14 h-14 rounded-xl bg-surface-container-high flex items-center justify-center text-outline flex-shrink-0">
+<span class="material-symbols-outlined text-3xl">solar_power</span>
+<span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-surface-container-highest flex items-center justify-center text-outline text-[9px]">
+<span class="material-symbols-outlined text-[10px]">lock</span>
+</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md font-bold text-on-surface-variant truncate">Solar Vanguard</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-outline font-label-hud-micro text-label-hud-micro uppercase font-bold">+400 XP</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-0.5 line-clamp-1">Generate 50kWh clean energy</p>
+<div class="mt-space-xs flex items-center gap-space-xs font-label-hud-micro text-label-hud-micro text-outline">
+<div class="w-16 h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="w-7/12 h-full bg-tertiary/50"></div>
+</div>
+<span>32 / 50 kWh</span>
+</div>
+</div>
+</div>
+<div class="hidden group-hover:block absolute bottom-full left-4 mb-2 z-30 w-64 p-space-sm rounded-lg bg-surface-container-highest text-on-surface shadow-2xl font-label-hud-micro text-label-hud-micro">
+            Criteria: Connect home rooftop PV or participate in Dubai Clean Energy shared solar farm to tally 50kWh.
+          </div>
+</div>
+<!-- Badge 6: Zero Waste Hero (Locked) -->
+<div class="relative group p-space-md rounded-xl bg-surface-container-low/40 backdrop-blur-md opacity-70 hover:opacity-100 transition-all shadow-sm">
+<div class="flex items-start gap-space-md">
+<div class="relative w-14 h-14 rounded-xl bg-surface-container-high flex items-center justify-center text-outline flex-shrink-0">
+<span class="material-symbols-outlined text-3xl">delete_sweep</span>
+<span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-surface-container-highest flex items-center justify-center text-outline text-[9px]">
+<span class="material-symbols-outlined text-[10px]">lock</span>
+</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-body-md font-bold text-on-surface-variant truncate">Zero Waste Hero</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-outline font-label-hud-micro text-label-hud-micro uppercase font-bold">+600 XP</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-0.5 line-clamp-1">Score 100% on Recycle Rush Challenge</p>
+<div class="mt-space-xs flex items-center gap-space-xs font-label-hud-micro text-label-hud-micro text-outline">
+<div class="w-16 h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="w-4/12 h-full bg-primary/40"></div>
+</div>
+<span>4 / 10 Rounds</span>
+</div>
+</div>
+</div>
+<div class="hidden group-hover:block absolute bottom-full left-4 mb-2 z-30 w-64 p-space-sm rounded-lg bg-surface-container-highest text-on-surface shadow-2xl font-label-hud-micro text-label-hud-micro">
+            Criteria: Attain flawless streak in the IDCC Recycle Rush sorting arcade module across 10 rounds.
+          </div>
+</div>
+</div>
+</section>
+</div>
+<!-- Interactive JavaScript Engine -->
+<script>
+    (function initEcoSimulator() {
+      // Dynamic parameters state
+      let currentTransport = 0.40;
+      let currentWater = 0.35;
+      let currentWaste = 0.45;
+      let dietMitigation = 0.65;
+      let acMitigation = 0.45;
+      let userXP = 2840;
+      let vitalityPercent = 88;
+
+      const UAE_BASELINE = 5.53;
+
+      const calcEl = document.getElementById('calculated-footprint');
+      const compEl = document.getElementById('comparison-badge');
+      const vitValEl = document.getElementById('vitality-val');
+      const vitBarEl = document.getElementById('vitality-bar');
+      const xpEl = document.getElementById('arborist-xp');
+      const fxLayer = document.getElementById('water-fx-layer');
+      const treeContainer = document.getElementById('tree-container');
+
+      function updateCalculation() {
+        let gross = currentTransport + currentWater + currentWaste + 2.0; // base metabolic overhead
+        if (document.getElementById('toggle-diet').checked) gross -= dietMitigation;
+        if (document.getElementById('toggle-ac').checked) gross -= acMitigation;
+
+        gross = Math.max(0.75, gross);
+        calcEl.textContent = gross.toFixed(2);
+
+        // Update percent comparison
+        const diffPercent = Math.round(((UAE_BASELINE - gross) / UAE_BASELINE) * 100);
+        if (diffPercent >= 0) {
+          compEl.className = 'font-label-hud-micro text-label-hud-micro text-secondary font-semibold flex items-center gap-1 mt-0.5';
+          compEl.innerHTML = `<span class="material-symbols-outlined text-sm">trending_down</span><span>${diffPercent}% lower than national average (${UAE_BASELINE} kg)</span>`;
+        } else {
+          compEl.className = 'font-label-hud-micro text-label-hud-micro text-error font-semibold flex items-center gap-1 mt-0.5';
+          compEl.innerHTML = `<span class="material-symbols-outlined text-sm">trending_up</span><span>${Math.abs(diffPercent)}% above baseline emission threshold</span>`;
+        }
+
+        // Adjust tree vitality dynamically
+        vitalityPercent = Math.min(99, Math.max(45, Math.round(100 - (gross / UAE_BASELINE) * 45)));
+        vitValEl.textContent = `${vitalityPercent}% • ${vitalityPercent > 80 ? 'Thriving Oasis Tier' : 'Stable Growth Tier'}`;
+        vitBarEl.style.width = `${vitalityPercent}%`;
+      }
+
+      // Transport Click Handlers
+      const transportBtns = document.querySelectorAll('.transport-btn');
+      transportBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          transportBtns.forEach(b => {
+            b.classList.remove('active', 'bg-primary-container', 'text-on-primary-container', 'shadow-md');
+            b.classList.add('bg-surface-container-high/60', 'text-on-surface');
+            const icon = b.querySelector('.material-symbols-outlined');
+            if (icon) icon.className = 'material-symbols-outlined text-xl text-on-surface-variant group-hover:text-primary mb-space-xs';
+          });
+          btn.classList.add('active', 'bg-primary-container', 'text-on-primary-container', 'shadow-md');
+          btn.classList.remove('bg-surface-container-high/60', 'text-on-surface');
+          const activeIcon = btn.querySelector('.material-symbols-outlined');
+          if (activeIcon) activeIcon.className = 'material-symbols-outlined text-xl mb-space-xs';
+
+          currentTransport = parseFloat(btn.getAttribute('data-val'));
+          document.getElementById('transport-readout').textContent = btn.getAttribute('data-label');
+          updateCalculation();
+        });
+      });
+
+      // Water Options Handlers
+      const waterRadios = document.querySelectorAll('input[name="water-habit"]');
+      waterRadios.forEach(r => {
+        r.addEventListener('change', (e) => {
+          currentWater = parseFloat(e.target.value);
+          document.getElementById('water-readout').textContent = e.target.getAttribute('data-label');
+          updateCalculation();
+        });
+      });
+
+      // Waste Buttons Handlers
+      const wasteBtns = document.querySelectorAll('.waste-btn');
+      wasteBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          wasteBtns.forEach(b => {
+            b.classList.remove('active', 'bg-primary-container', 'text-on-primary-container', 'shadow-md');
+            b.classList.add('bg-surface-container', 'text-on-surface');
+          });
+          btn.classList.add('active', 'bg-primary-container', 'text-on-primary-container', 'shadow-md');
+          btn.classList.remove('bg-surface-container');
+
+          currentWaste = parseFloat(btn.getAttribute('data-val'));
+          document.getElementById('waste-readout').textContent = btn.getAttribute('data-label');
+          updateCalculation();
+        });
+      });
+
+      // Toggle Handlers
+      document.getElementById('toggle-diet').addEventListener('change', updateCalculation);
+      document.getElementById('toggle-ac').addEventListener('change', updateCalculation);
+
+      // Recalculate Button Action
+      document.getElementById('recalculate-btn').addEventListener('click', () => {
+        updateCalculation();
+        calcEl.classList.add('scale-110');
+        setTimeout(() => calcEl.classList.remove('scale-110'), 250);
+      });
+
+      // Water Virtual Ghaf Micro-Interaction
+      const waterBtn = document.getElementById('water-ghaf-btn');
+      waterBtn.addEventListener('click', (e) => {
+        userXP += 5;
+        xpEl.textContent = `${userXP.toLocaleString()} XP`;
+
+        // Ripple pulse on tree
+        treeContainer.classList.add('scale-105');
+        setTimeout(() => treeContainer.classList.remove('scale-105'), 350);
+
+        // Spawn glowing water drop feedback
+        const drop = document.createElement('div');
+        drop.className = 'absolute font-label-hud text-label-hud font-bold text-secondary bg-surface-container-highest px-3 py-1 rounded-full shadow-lg pointer-events-none transition-all duration-700 ease-out transform';
+        drop.style.bottom = '40%';
+        drop.style.opacity = '1';
+        drop.innerHTML = '<span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-sm">water_drop</span> +5 XP Watered</span>';
+        
+        fxLayer.appendChild(drop);
+
+        requestAnimationFrame(() => {
+          drop.style.transform = 'translateY(-48px)';
+          drop.style.opacity = '0';
+        });
+
+        setTimeout(() => {
+          if (drop.parentNode) drop.parentNode.removeChild(drop);
+        }, 750);
+      });
+
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest/90 backdrop-blur-md mt-auto"><div class="w-full px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start pb-space-lg"><div class="md:col-span-5 space-y-space-sm"><div class="flex items-center gap-space-sm"><img alt="EcoPulse Master Emblem" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XshwQcJAVyaASIBMiQKhwkajiazM4RhzT1EkIVSy-YJqZ96fAu_lHaebrmITxSeVRi2PfR7R5EL1N0Mr-c7EcWvwMxXEcPbkDFie5p3XPqCVzHnFvH36Wdj-OGLQM1evwrClSjvbGVV5AYze7-R0Kym_4_wgKquvStyWm5Gxx28rijkPH8iyHLumvl_3BDgYrDxW-005iJMspVjP1mp01zWlvWYLLQrr8vaXl3FJSK8rhbTpkLTcZp2Bk"/><span class="font-headline-sm text-headline-sm text-on-surface font-bold">EcoPulse</span><span class="px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-label-hud-micro text-label-hud-micro uppercase">v4.2</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">Synthesizing planetary biosensors, high-performance telemetry, and gamified environmental action to accelerate global carbon drawdown initiatives.</p><div class="flex items-center gap-space-xs pt-space-xs"><span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span><span class="font-label-hud text-label-hud text-on-surface-variant uppercase tracking-wider">Sensors Live • 99.8% Grid Sync</span></div></div><div class="md:col-span-4 flex gap-space-xl"><div class="space-y-space-xs"><div class="font-label-hud text-label-hud uppercase tracking-wider text-on-surface font-bold">Modules</div><div class="flex flex-col space-y-1 font-body-sm text-body-sm text-on-surface-variant"><a class="hover:text-primary transition-colors" href="#">Carbon Audits</a><a class="hover:text-primary transition-colors" href="#">Telemetry Feed</a><a class="hover:text-primary transition-colors" href="#">Eco Quests</a><a class="hover:text-primary transition-colors" href="#">Flora Index</a></div></div><div class="space-y-space-xs"><div class="font-label-hud text-label-hud uppercase tracking-wider text-on-surface font-bold">Governance</div><div class="flex flex-col space-y-1 font-body-sm text-body-sm text-on-surface-variant"><a class="hover:text-primary transition-colors" href="#">Telemetry API</a><a class="hover:text-primary transition-colors" href="#">IDCC Protocol</a><a class="hover:text-primary transition-colors" href="#">Climate Trust</a><a class="hover:text-primary transition-colors" href="#">Privacy Node</a></div></div></div><div class="md:col-span-3 flex md:justify-end items-start"><button class="group flex items-center gap-space-xs px-space-md py-space-sm rounded-full bg-surface-container-high hover:bg-surface-container-highest transition-all shadow-[0_1px_8px_rgba(0,0,0,0.2)]" onclick="window.scrollTo({top:0,behavior:'smooth'})" type="button"><span class="font-label-hud text-label-hud uppercase text-on-surface-variant group-hover:text-on-surface transition-colors">Top of Grid</span><span class="material-symbols-outlined text-lg text-primary group-hover:-translate-y-0.5 transition-transform">arrow_upward</span></button></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm font-body-sm text-body-sm text-on-surface-variant"><p>© 2026 EcoPulse Biosphere Initiative. Accredited IDCC Global Node.</p><p class="font-label-hud-micro text-label-hud-micro uppercase tracking-wider text-outline">Obsidian Bio-Telemetry v4.2.1 • All Satellites Nominal</p></div></div></footer></body></html>

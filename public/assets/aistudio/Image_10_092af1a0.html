@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>EcoPulse - Planetary Stewardship Platform</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-fixed-variant": "#005236", "background": "#0c1420", "on-tertiary": "#472a00", "tertiary": "#ffb95f", "primary-fixed": "#6ffbbe", "surface-tint": "#4edea3", "on-surface": "#dbe3f4", "inverse-on-surface": "#29313e", "surface-container-high": "#232a37", "secondary": "#45dfa4", "on-secondary-fixed": "#002114", "error-container": "#93000a", "on-surface-variant": "#bbcabf", "on-primary-container": "#00422b", "primary": "#4edea3", "on-secondary": "#003824", "tertiary-fixed": "#ffddb8", "secondary-container": "#00bd85", "on-primary": "#003824", "on-tertiary-container": "#523200", "surface-dim": "#0c1420", "secondary-fixed": "#68fcbf", "error": "#ffb4ab", "surface-container-lowest": "#070e1a", "surface-container-low": "#141c28", "on-tertiary-fixed-variant": "#653e00", "secondary-fixed-dim": "#45dfa4", "inverse-primary": "#006c49", "tertiary-container": "#e29100", "on-secondary-fixed-variant": "#005137", "on-background": "#dbe3f4", "on-secondary-container": "#00452e", "tertiary-fixed-dim": "#ffb95f", "outline-variant": "#3c4a42", "outline": "#86948a", "on-primary-fixed": "#002113", "on-error-container": "#ffdad6", "primary-container": "#10b981", "surface": "#0c1420", "on-error": "#690005", "inverse-surface": "#dbe3f4", "surface-container-highest": "#2d3542", "on-tertiary-fixed": "#2a1700", "surface-bright": "#323947", "surface-variant": "#2d3542", "surface-container": "#18202c", "primary-fixed-dim": "#4edea3" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "margin-mobile": "1.25rem", "space-xl": "2.5rem", "margin": "3rem", "gutter": "1.5rem", "gutter-mobile": "1rem", "space-lg": "1.5rem", "space-md": "1rem", "space-sm": "0.5rem" }, "fontFamily": { "headline-md": ["Outfit"], "body-lg": ["Plus Jakarta Sans"], "display-hero-mobile": ["Outfit"], "body-md": ["Plus Jakarta Sans"], "label-hud": ["Space Grotesk"], "headline-sm": ["Outfit"], "headline-lg": ["Outfit"], "display-hero": ["Outfit"], "label-hud-micro": ["Space Grotesk"], "headline-lg-mobile": ["Outfit"], "metric-numeral": ["Outfit"], "body-sm": ["Plus Jakarta Sans"] }, "fontSize": { "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }], "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "label-hud": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }], "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "label-hud-micro": ["10px", { "lineHeight": "14px", "letterSpacing": "0.12em", "fontWeight": "700" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "metric-numeral": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400" }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-20 w-full px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg flex-shrink-0"><div class="flex items-center gap-space-sm"><img alt="EcoPulse Master Emblem" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XshwQcJAVyaASIBMiQKhwkajiazM4RhzT1EkIVSy-YJqZ96fAu_lHaebrmITxSeVRi2PfR7R5EL1N0Mr-c7EcWvwMxXEcPbkDFie5p3XPqCVzHnFvH36Wdj-OGLQM1evwrClSjvbGVV5AYze7-R0Kym_4_wgKquvStyWm5Gxx28rijkPH8iyHLumvl_3BDgYrDxW-005iJMspVjP1mp01zWlvWYLLQrr8vaXl3FJSK8rhbTpkLTcZp2Bk"/><span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">EcoPulse</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container-high shadow-[0_0_12px_rgba(16,185,129,0.2)]"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-label-hud-micro text-label-hud-micro uppercase text-primary font-bold tracking-wider">IDCC 2026 Edition</span></div></div><nav class="hidden lg:flex items-center gap-space-xs p-1 bg-surface-container-low/80 backdrop-blur-md rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(16,185,129,0.35)]"><a class="px-space-md py-space-xs rounded-full font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="dashboard" href="#">Dashboard</a><a class="px-space-md py-space-xs rounded-full font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="eco-tracker" href="#">Eco-Tracker &amp; Footprint</a><a class="px-space-md py-space-xs rounded-full font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="recycle-rush" href="#">Recycle Rush</a><a aria-current="page" class="px-space-md py-space-xs rounded-full transition-all bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(16,185,129,0.35)]" data-path="heritage-trail" href="#">Heritage &amp; Eco-Trail</a><a class="px-space-md py-space-xs rounded-full font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="focus-timer" href="#">Focus &amp; Productivity</a></nav><div class="flex items-center gap-space-md flex-shrink-0"><div class="hidden 2xl:flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-high/70 backdrop-blur-md"><div class="flex flex-col"><div class="flex items-center justify-between gap-space-sm"><span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Lvl 14 Ranger</span><span class="font-label-hud text-label-hud text-primary font-bold">2,840 XP</span></div><div class="w-28 h-1.5 rounded-full bg-surface-container-highest overflow-hidden mt-0.5"><div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full w-3/4 shadow-[0_0_8px_rgba(78,222,163,0.5)]"></div></div></div></div><button aria-label="Toggle theme" class="w-10 h-10 rounded-full bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">wb_sunny</span></button><button aria-label="Notifications" class="relative w-10 h-10 rounded-full bg-surface-container-low hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary ring-2 ring-surface shadow-[0_0_6px_rgba(78,222,163,0.8)]"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="relative flex-shrink-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-primary/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV0iYBq6XXo3W7B6ZmpZ5qJ_wNddNqFe4ePw-9TdGLXdsrXdNgKoKKpXWN1mPTqEmoZnO8PTUjeqv4uBlB2sq6i7Gkg-wQdq680sjxqnLyeXJJsso-Rq7RRUOtpW2KZLLTmdyJ9_3J-Ru7kvJMjMZ0wkfnl6laORzekWINaDHNMqEzcJzG5To3H-rR5AG_SXkDqzcIDQ2wndkgmkM-Ao-bPLGa2OFYcpniziS9NhLkxy__BKdSJ6gu"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface"></span></div><div class="hidden md:flex flex-col text-left"><span class="font-body-sm text-body-sm font-semibold text-on-surface leading-none">Dr. Maya Lin</span><span class="font-label-hud-micro text-label-hud-micro text-secondary font-medium tracking-wide mt-0.5">Eco-Active</span></div></div></div></div></header><main class="w-full pt-20 bg-background flex-1"><div class="flex flex-col w-full">
+<!-- Interactive Canvas Container with Max Width Alignment -->
+<div class="w-full max-w-[1440px] mx-auto px-margin py-space-lg flex flex-col gap-space-xl">
+<!-- Top Explorer Controls & Hero Filter Bar -->
+<section class="flex flex-col gap-space-md">
+<!-- Breadcrumb / Live HUD Status -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-primary font-bold">Bioregion Node // UAE &amp; Gulf Basin</span>
+</div>
+<span class="font-label-hud-micro text-label-hud-micro text-on-surface-variant uppercase">Cartography v2.8 • 6 Field Stations Active</span>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span class="font-label-hud text-label-hud text-on-surface">Available Trail Bounty: <span class="text-tertiary font-bold">+900 XP</span></span>
+</div>
+</div>
+<!-- Main Headline Cluster -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="max-w-3xl space-y-space-xs">
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">Emirates Heritage &amp; Eco-Innovation Trail</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Explore centuries of indigenous desert wisdom and modern clean energy engineering. Test your knowledge to earn Ranger XP!</p>
+</div>
+<!-- Mode Toggle View -->
+<div class="flex items-center p-1 rounded-full bg-surface-container-low self-start md:self-auto shadow-sm">
+<button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-hud text-label-hud uppercase font-bold transition-all" id="viewGridBtn" type="button">
+<span class="material-symbols-outlined text-base">grid_view</span>
+            Grid View
+          </button>
+<button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-full text-on-surface-variant hover:text-on-surface font-label-hud text-label-hud uppercase transition-all" id="viewMapBtn" type="button">
+<span class="material-symbols-outlined text-base">explore</span>
+            Biosphere Map
+          </button>
+</div>
+</div>
+<!-- Filter Controls & Dynamic Search -->
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md pt-space-xs">
+<!-- Category Filters -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-2 lg:pb-0 scrollbar-none" id="filterContainer">
+<button class="filter-pill flex-shrink-0 px-space-md py-2 rounded-full font-label-hud text-label-hud uppercase bg-primary text-on-primary font-bold shadow-md transition-all" data-filter="all" type="button">All Innovations (6)</button>
+<button class="filter-pill flex-shrink-0 px-space-md py-2 rounded-full font-label-hud text-label-hud uppercase bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-all" data-filter="ancient" type="button">Ancient Wisdom (Falaj &amp; Barjeel)</button>
+<button class="filter-pill flex-shrink-0 px-space-md py-2 rounded-full font-label-hud text-label-hud uppercase bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-all" data-filter="cleantech" type="button">Modern Clean Tech (Solar &amp; Nuclear)</button>
+<button class="filter-pill flex-shrink-0 px-space-md py-2 rounded-full font-label-hud text-label-hud uppercase bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-all" data-filter="coastal" type="button">Coastal &amp; Marine (Mangroves)</button>
+</div>
+<!-- Search Input -->
+<div class="relative min-w-[280px] lg:w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-full bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-high transition-all" id="landmarkSearch" placeholder="Search landmarks or techniques..." type="text"/>
+</div>
+</div>
+</section>
+<!-- Map View Container (Toggled via button) -->
+<section class="hidden flex-col gap-space-md bg-surface-container-low rounded-xl p-space-md overflow-hidden relative shadow-lg" id="biosphereMapView">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary">satellite_alt</span>
+<span class="font-label-hud text-label-hud uppercase text-on-surface font-bold">Topographical Geospatial Telemetry</span>
+</div>
+<span class="font-label-hud-micro text-label-hud-micro text-secondary uppercase bg-surface-container-high px-space-sm py-1 rounded-full">Interactive Coordinates Sync</span>
+</div>
+<!-- Geospatial View Component -->
+<div class="w-full h-80 rounded-xl bg-cover bg-center relative overflow-hidden" data-location="United Arab Emirates" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXEc06cqcpCEHePOGrzEse7n2LpRHqsYfJIxnFk2LwBz298iczNTP7iAkMpNO-Hk7I8E7jUo7NG0vEDpnFTQtGi5OoeKeTNyzB5WpRdMm8f16HKdN3bJl06szJILy-D9p5X8wTBxECEz90MZ_aW8oktKv01_-p6FNSomdSVVzt9oW1K5_fvUUaUh0FC8F9Wdqg7t_iP0Io621BhajkXxw4WV_eKJ8N1UYYPdpGpUmJlx6nJRv4Craw')">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-space-sm bg-surface-container/90 backdrop-blur-md p-space-sm rounded-lg">
+<div class="flex items-center gap-space-xs font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+            6 Pins Mapped Across Abu Dhabi, Dubai, Al Ain &amp; Fujairah
+          </div>
+<button class="font-label-hud text-label-hud uppercase text-primary hover:underline" onclick="document.getElementById('viewGridBtn').click()" type="button">Return to Detailed Cards →</button>
+</div>
+</div>
+</section>
+<!-- Interactive Landmark Exploration Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter" id="landmarkGrid">
+<!-- Card 1: Traditional Falaj Irrigation System -->
+<article class="landmark-card group flex flex-col rounded-xl bg-surface-container-low overflow-hidden hover:-translate-y-1 transition-all duration-300 shadow-md" data-category="ancient">
+<!-- Visual Header -->
+<div class="relative h-60 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Intricate ancient stone and clay Falaj water channel winding through lush green date palm oasis in Al Ain United Arab Emirates, crystal clear running water, golden hour desert sunlight filtering through palm fronds, ultra realistic documentary photograph" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_npKglL1tJHQH2lx-xuUZ8sVif7eP37dqpNl2iL2uamIXpGXDKXPJHRilnBkPW7_R9ZN9sCVem7yMVnJ-rkRHpPB_the0nIQb9rYTMkMQFMRdROWRQ7G5Ip9OPOP55i4Gl4rimUdSg02JU17MPLH5M2otVMI6CXqYmdNIOu910K8cjfp_bGkdZ9KO0__nNMbw9BsFLYUiLYo_i99rIAf5MKUmqRVtuPrcg9OcO_GM0_FxSWjO_z1y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-hud-micro text-label-hud-micro uppercase text-tertiary font-bold">Ancient Wisdom</span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Al Ain Oasis</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 px-space-sm py-1 rounded-full bg-primary-container text-on-primary-container font-label-hud text-label-hud font-bold shadow-md">
+<span class="material-symbols-outlined text-xs">workspace_premium</span>
+            +150 XP Available
+          </div>
+<div class="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+<span class="font-label-hud-micro text-label-hud-micro text-primary uppercase font-bold tracking-widest flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+              Hydro-Equilibrium
+            </span>
+<span class="font-label-hud-micro text-label-hud-micro text-on-surface-variant">3,000+ Yrs Active</span>
+</div>
+</div>
+<!-- Body Content -->
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div class="space-y-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors">Traditional Falaj Irrigation System</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Pioneering gravity-fed subterranean aqueducts engineered to transport mountain spring waters to arid desert farming patches without a watt of artificial power.</p>
+</div>
+<!-- Micro Metas -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<div class="p-space-xs rounded bg-surface-container">
+<span class="font-label-hud-micro text-label-hud-micro text-outline uppercase block">Pumping Energy</span>
+<span class="font-label-hud text-label-hud text-primary font-bold">0.00 kWh (100% Gravity)</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container">
+<span class="font-label-hud-micro text-label-hud-micro text-outline uppercase block">Stewardship Core</span>
+<span class="font-label-hud text-label-hud text-on-surface font-bold">Shared Oasis Rights</span>
+</div>
+</div>
+<!-- Action -->
+<button class="w-full py-2.5 px-space-md rounded-full bg-primary text-on-primary font-label-hud text-label-hud uppercase font-bold flex items-center justify-center gap-space-xs hover:bg-primary-fixed transition-colors shadow-sm" onclick="openFalajModal()" type="button">
+<span>Inspect Landmark</span>
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Wind Towers (Barjeel) -->
+<article class="landmark-card group flex flex-col rounded-xl bg-surface-container-low overflow-hidden hover:-translate-y-1 transition-all duration-300 shadow-md" data-category="ancient">
+<!-- Visual Header -->
+<div class="relative h-60 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Traditional wind tower Barjeel architectural structure rising above coral stone building in historic Al Fahidi Bastakiya Dubai, soft warm evening light catching textural clay stucco walls against clear twilight sky, high detail architectural photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ9eyuMNXu1UQa3_AFGkYI4ifIzlsbwgfO58z6kHSmIpK-8EcXcdfsN74gtDOMhHFY7YLkdRbCqVqxOf70QcFw6oFEROnSZlWQ8MoNhXJdLOkS0bxFB0hrkdWe90owWrLXQCVrQ0lFPjTztqZYViFFgV7RQAroSXPO6RlSdi8XXcfcMBuMVBrtHp9R5a_XSQo2WSoe3TCyvaGkMdVj3PVlXAE6x8I_B90x6gWD0apXBh5VSEF5DMJY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-hud-micro text-label-hud-micro uppercase text-tertiary font-bold">Ancient Wisdom</span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Bastakiya, Dubai</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container-highest/90 text-on-surface font-label-hud text-label-hud font-bold">
+<span class="material-symbols-outlined text-xs">workspace_premium</span>
+            +150 XP Available
+          </div>
+<div class="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+<span class="font-label-hud-micro text-label-hud-micro text-secondary uppercase font-bold tracking-widest flex items-center gap-1">
+              Passive Aerodynamics
+            </span>
+<span class="font-label-hud-micro text-label-hud-micro text-on-surface-variant">ΔT -10°C Convective</span>
+</div>
+</div>
+<!-- Body Content -->
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div class="space-y-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors">Wind Towers (Barjeel)</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Historic chimney-like non-mechanical cooling apparatus capturing prevailing sea breezes and funneling channeled cool air downward to natural living chambers.</p>
+</div>
+<!-- Micro Metas -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<div class="p-space-xs rounded bg-surface-container">
+<span class="font-label-hud-micro text-label-hud-micro text-outline uppercase block">Thermal Mitigation</span>
+<span class="font-label-hud text-label-hud text-secondary font-bold">Zero-Emissions Draft</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container">
+<span class="font-label-hud-micro text-label-hud-micro text-outline uppercase block">Material Index</span>
+<span class="font-label-hud text-label-hud text-on-surface font-bold">Coral Stone &amp; Gypsum</span>
+</div>
+</div>
+<!-- Action -->
+<button class="w-full py-2.5 px-space-md rounded-full bg-surface-container-high text-on-surface hover:bg-surface-bright font-label-hud text-label-hud uppercase font-bold flex items-center justify-center gap-space-xs transition-colors" type="button">
+<span>Inspect Landmark</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Mohammed bin Rashid Al Maktoum Solar Park -->
+<article class="landmark-card group flex flex-col rounded-xl bg-surface-container-low overflow-hidden hover:-translate-y-1 transition-all duration-300 shadow-md" data-category="cleantech">
+<!-- Visual Header -->
+<div class="relative h-60 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Vast expanse of high tech photovoltaic solar panels and central molten salt concentrated solar power tower in Dubai desert, sharp reflections of deep blue sky, shimmering desert mirage horizon, futuristic clean tech landscape photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_exVe7_UNs6GDB2g4xi2mSp28jaforJby4kU5cGNjYh9--te72gpaCIasIVTsVB-tLsxYur_ItC1izXp8ZNoqyf2rmXedWhlDfbywzjrh6eK1Xw2BOPPTJWXkL01WP_5oNgxjiztAyyQnN7RMsseD197HqFxrqpSmd3bxdKBz8ld-2Eme2ygkvM1MUuvA2iKcRzfeDuJcdKJXHE9BFBOC14tlJeGC43aSyRbCgSDKRn_34ywrgQn4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-hud-micro text-label-hud-micro uppercase text-secondary font-bold">Modern Engineering</span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Seih Al-Dahal</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container-highest/90 text-on-surface font-label-hud text-label-hud font-bold">
+<span class="material-symbols-outlined text-xs">workspace_premium</span>
+            +150 XP Available
+          </div>
+<div class="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+<span class="font-label-hud-micro text-label-hud-micro text-primary uppercase font-bold tracking-widest flex items-center gap-1">
+              5,000 MW Capacity
+            </span>
+<span class="font-label-hud-micro text-label-hud-micro text-on-surface-variant">World's Largest CSP</span>
+</div>
+</div>
+<!-- Body Content -->
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div class="space-y-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors">MBR Solar Park</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">World's largest single-site solar park pairing photovoltaic arrays with towering thermal molten salt storage to deliver 24-hour continuous clean baseline electricity.</p>
+</div>
+<!-- Micro Metas -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<div class="p-space-xs rounded bg-surface-container">
+<span class="font-label-hud-micro text-label-hud-micro text-outline uppercase block">Annual Offset</span>
+<span class="font-label-hud text-label-hud text-primary font-bold">6.5M Tons CO2e</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container">
+<span class="font-label-hud-micro text-label-hud-micro text-outline uppercase block">Tower Elevation</span>
+<span class="font-label-hud text-label-hud text-on-surface font-bold">262.4m Solar Receiver</span>
+</div>
+</div>
+<!-- Action -->
+<button class="w-full py-2.5 px-space-md rounded-full bg-surface-container-high text-on-surface hover:bg-surface-bright font-label-hud text-label-hud uppercase font-bold flex items-center justify-center gap-space-xs transition-colors" type="button">
+<span>Inspect Landmark</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 4: Jubail Mangrove Sanctuary -->
+<article class="landmark-card group flex flex-col rounded-xl bg-surface-container-low overflow-hidden hover:-translate-y-1 transition-all duration-300 shadow-md" data-category="coastal">
+<!-- Visual Header -->
+<div class="relative h-60 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Winding wooden boardwalk path weaving over turquoise tidal waters through thriving emerald green mangrove forest in Jubail Island Abu Dhabi, clear water revealing fish nurseries, soft coastal haze, pristine nature preservation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU3VqzfPO0mxyTHGDmR6gbDUtbGpjxUZsPNXlPDgEOQQ7N0idqDW2IqYH-g7cmDZ2N4JSn1LiPIBi0xIiWWBcbIVPGA9X-lZsl381NTkfHYitTpA76Lx51abE3qhlA-sb8-mwCuRzcMGEVbxA4TInBh4t25jvszKjeVqbIgpH2FwS8wfkXf_IDilJCezA7x90H8hFAKLCz7KMAczi8ztktJUnLAsg7RJ39q-kMXnwFMDfmgpjSK6Od"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-hud-micro text-label-hud-micro uppercase text-secondary font-bold">Coastal &amp; Marine</span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Jubail Island</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container-highest/90 text-on-surface font-label-hud text-label-hud font-bold">
+<span class="material-symbols-outlined text-xs">workspace_premium</span>
+            +150 XP Available
+          </div>
+<div class="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+<span class="font-label-hud-micro text-label-hud-micro text-primary uppercase font-bold tracking-widest flex items-center gap-1">
+              Blue Carbon Sink
+            </span>
+<span class="font-label-hud-micro text-label-hud-micro text-on-surface-variant">1,000,000+ Saplings</span>
+</div>
+</div>
+<!-- Body Content -->
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div class="space-y-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors">Jubail Mangrove Sanctuary</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">A vital coastal blue carbon sanctuary safeguarding marine biodiversity, acting as natural storm breakwaters, and sequestering carbon at 4x the rate of rainforests.</p>
+</div>
+<!-- Micro Metas -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<div class="p-space-xs rounded bg-surface-container">
+<span class="font-label-hud-micro text-label-hud-micro text-outline uppercase block">Carbon Sequestration</span>
+<span class="font-label-hud text-label-hud text-primary font-bold">12.3 kg/m² Soil Storage</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container">
+<span class="font-label-hud-micro text-label-hud-micro text-outline uppercase block">Fauna Species</span>
+<span class="font-label-hud text-label-hud text-on-surface font-bold">60+ Avian &amp; Marine</span>
+</div>
+</div>
+<!-- Action -->
+<button class="w-full py-2.5 px-space-md rounded-full bg-surface-container-high text-on-surface hover:bg-surface-bright font-label-hud text-label-hud uppercase font-bold flex items-center justify-center gap-space-xs transition-colors" type="button">
+<span>Inspect Landmark</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 5: Masdar City Eco-Architecture -->
+<article class="landmark-card group flex flex-col rounded-xl bg-surface-container-low overflow-hidden hover:-translate-y-1 transition-all duration-300 shadow-md" data-category="cleantech">
+<!-- Visual Header -->
+<div class="relative h-60 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern sustainable architecture of Masdar City Abu Dhabi showing terracotta patterned mashrabiya facades, angled narrow pedestrian walkways creating natural shade, modern solar wind tower in plaza, dusk golden hour architectural photograph" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv4IfQ_vLsm3R8PvIAaM7keAU3Kzx5prQXddzTCFxO3s31YKpUIHjZvXVWaihuS7YykbsHHy55RYGlqJ2ken21lN_0wcYI1TOmdRREaIqZ5cw31AWgCCYnx17xyF6gT3GllqEmgRuWgju5bnU8eLlHFG8j8u4-B8k1DOY8RC4lqgLZf-PiZNyFEyHXg0NI25aK3pBhaLHb5RIyZYTmoJPOzbEmQNLGFCF68NPC8aTsaQh_JbRrhvkD"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-hud-micro text-label-hud-micro uppercase text-secondary font-bold">Modern Engineering</span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Abu Dhabi</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container-highest/90 text-on-surface font-label-hud text-label-hud font-bold">
+<span class="material-symbols-outlined text-xs">workspace_premium</span>
+            +150 XP Available
+          </div>
+<div class="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+<span class="font-label-hud-micro text-label-hud-micro text-primary uppercase font-bold tracking-widest flex items-center gap-1">
+              Urban Micro-Climate
+            </span>
+<span class="font-label-hud-micro text-label-hud-micro text-on-surface-variant">Passive Shading Master</span>
+</div>
+</div>
+<!-- Body Content -->
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div class="space-y-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors">Masdar City Eco-Architecture</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Urban laboratory synthesizing contemporary solar engineering with ancestral Arabic vernacular: narrow street corridors, modern mashrabiya, and evaporative cooling.</p>
+</div>
+<!-- Micro Metas -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<div class="p-space-xs rounded bg-surface-container">
+<span class="font-label-hud-micro text-label-hud-micro text-outline uppercase block">Ambient Cooling</span>
+<span class="font-label-hud text-label-hud text-secondary font-bold">-7°C Street Level</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container">
+<span class="font-label-hud-micro text-label-hud-micro text-outline uppercase block">Clean Power Share</span>
+<span class="font-label-hud text-label-hud text-on-surface font-bold">100% On-Site Solar</span>
+</div>
+</div>
+<!-- Action -->
+<button class="w-full py-2.5 px-space-md rounded-full bg-surface-container-high text-on-surface hover:bg-surface-bright font-label-hud text-label-hud uppercase font-bold flex items-center justify-center gap-space-xs transition-colors" type="button">
+<span>Inspect Landmark</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 6: Al Hajar Mountain Terraced Farming -->
+<article class="landmark-card group flex flex-col rounded-xl bg-surface-container-low overflow-hidden hover:-translate-y-1 transition-all duration-300 shadow-md" data-category="ancient">
+<!-- Visual Header -->
+<div class="relative h-60 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Rugged rocky slopes of the Al Hajar Mountains in Fujairah with stepped stone agricultural terraces holding green crops and date palms, dramatic mountain ridge background with deep shadows and warm sunlight, high quality travel documentary photograph" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3M6zWzgZ3R1mjlGd8BY2SIxBckx5UHi5_BAAvwXx0AnNDsZfGrT9_ueRPkyiZivN5ztL9F0qM75SX7ItLZjs-xdlOv1tPy8dMnZRQ_r_GVijsQad3W9zupwGplsErz6mnSamNxxFq5LAMC0xEnSEQRPm0l6I3HeTd1YZOalcie72b0XW7oDZJeDIkbMYnMJuDvSQqvxAOgnfftMCtA0z2o6MR3BmHVOiVGwNLIU3A5TsofEo10SU-"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-hud-micro text-label-hud-micro uppercase text-tertiary font-bold">Ancient Wisdom</span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Fujairah Ridge</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container-highest/90 text-on-surface font-label-hud text-label-hud font-bold">
+<span class="material-symbols-outlined text-xs">workspace_premium</span>
+            +150 XP Available
+          </div>
+<div class="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+<span class="font-label-hud-micro text-label-hud-micro text-primary uppercase font-bold tracking-widest flex items-center gap-1">
+              Topographic Catchment
+            </span>
+<span class="font-label-hud-micro text-label-hud-micro text-on-surface-variant">Zero Runoff Loss</span>
+</div>
+</div>
+<!-- Body Content -->
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div class="space-y-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors">Al Hajar Mountain Terraces</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Indigenous stepped terrace masonry that arrests sudden wadi downpours, filters topsoil, and creates sheltered sub-climates suited for citrus and medicinal mountain flora.</p>
+</div>
+<!-- Micro Metas -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<div class="p-space-xs rounded bg-surface-container">
+<span class="font-label-hud-micro text-label-hud-micro text-outline uppercase block">Soil Preservation</span>
+<span class="font-label-hud text-label-hud text-primary font-bold">98% Erosion Arrest</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container">
+<span class="font-label-hud-micro text-label-hud-micro text-outline uppercase block">Water Retention</span>
+<span class="font-label-hud text-label-hud text-on-surface font-bold">Slow Aquifer Seep</span>
+</div>
+</div>
+<!-- Action -->
+<button class="w-full py-2.5 px-space-md rounded-full bg-surface-container-high text-on-surface hover:bg-surface-bright font-label-hud text-label-hud uppercase font-bold flex items-center justify-center gap-space-xs transition-colors" type="button">
+<span>Inspect Landmark</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+</div>
+</article>
+</section>
+<!-- Bottom Trail Telemetry & Ranger Status Ribbon -->
+<section class="flex flex-col lg:flex-row items-center justify-between gap-space-md p-space-lg rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">nature_people</span>
+</div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-hud text-label-hud uppercase text-on-surface font-bold">Steward Trail Completion Status</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-label-hud-micro text-label-hud-micro font-bold">1/6 Explored</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Review historical context and pass each micro-quiz to unlock the accredited "Desert Polymath" badge.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-lg w-full lg:w-auto justify-between lg:justify-end">
+<div class="flex flex-col items-end">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-on-surface-variant">Progress to Next Tier</span>
+<span class="font-metric-numeral text-headline-sm text-primary font-bold">16.6%</span>
+</div>
+<div class="w-36 h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full w-1/6"></div>
+</div>
+</div>
+</section>
+</div>
+<!-- INTERACTIVE MODAL POP-UP (Active / Expandable on Screen) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-surface-container-lowest/80 backdrop-blur-md overflow-y-auto" id="falajModal">
+<div class="relative w-full max-w-4xl max-h-[921px] bg-surface-container-low rounded-xl shadow-2xl overflow-hidden flex flex-col my-auto">
+<!-- Modal Top Bar -->
+<div class="flex items-center justify-between px-space-lg py-space-md bg-surface-container-high flex-shrink-0">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-primary font-bold tracking-wider">Field Station Dossier • Landmark #01</span>
+</div>
+<button aria-label="Close Landmark Modal" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-colors" onclick="closeFalajModal()" type="button">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+<!-- Modal Body (Scrollable) -->
+<div class="overflow-y-auto p-space-lg space-y-space-xl">
+<!-- Header Overview -->
+<div class="flex flex-col md:flex-row gap-space-lg items-start">
+<div class="w-full md:w-1/2 rounded-xl overflow-hidden shadow-md flex-shrink-0">
+<img class="w-full h-56 object-cover" data-alt="Close up architectural detail of stone lined subterranean Falaj water channel emerging into sunlit stone basin in historic oasis surrounded by date palms, cool clear water shimmering over smooth gravel bed, documentary environmental style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_Zmfvks-5V4n3E6lj1FDbQproIQUQ9ChzpPNEV-u0cA6ySnHTXYtReC4iTt_UI-vp9CsX2RyZjURinRdSBOhjsyu7iepVR4lr75SfzuW7Op1pVlPKl6ZFAo6ot3KQW3tl5OQpeSfBH8uLSm00b8CZWNaTkCNKlF7u46rzxn7uz_iMyWGOj3caEuYOllBcxeQahFGwp4jt6huzTxdyXxRI_DiRjx35JntPIk8B_HBi84U-sxqWiQ2e"/>
+</div>
+<div class="flex flex-col justify-between space-y-space-sm">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container font-label-hud-micro text-label-hud-micro text-tertiary font-bold uppercase">UNESCO Intangible Heritage</span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container font-label-hud-micro text-label-hud-micro text-on-surface-variant uppercase">Al Ain, UAE</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Traditional Falaj Irrigation Systems</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">The Falaj system represents one of human civil engineering's most elegant zero-power hydraulic networks. By tapping mountain water tables and channeling them through gently sloping underground aqueducts, ancient communities prevented evaporation losses in hyper-arid climates.</p>
+</div>
+<div class="flex items-center gap-space-md pt-space-xs">
+<div class="flex flex-col">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-outline">Network Age</span>
+<span class="font-label-hud text-label-hud text-on-surface font-bold">3,000+ BCE Origin</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-outline">Hydraulic Drive</span>
+<span class="font-label-hud text-label-hud text-primary font-bold">Zero Energy (Gravity Only)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-outline">Social Framework</span>
+<span class="font-label-hud text-label-hud text-secondary font-bold">Democratic Water Shares</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Engineering Breakdown & Modern Relevance -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Breakdown 1 -->
+<div class="p-space-md rounded-xl bg-surface-container flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-primary font-label-hud text-label-hud uppercase font-bold">
+<span class="material-symbols-outlined text-base">architecture</span>
+              Engineering Breakdown
+            </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              The mother well (Umm al-Falaj) is dug at the mountain base until hitting the water table. Tunnels sloped at precise 1:1000 gradients convey liquid beneath miles of desert crust. Shafts dug every 20-30 meters provide ventilation and debris clearing without disturbing continuous hydrostatic flow.
+            </p>
+</div>
+<!-- Breakdown 2 -->
+<div class="p-space-md rounded-xl bg-surface-container flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-secondary font-label-hud text-label-hud uppercase font-bold">
+<span class="material-symbols-outlined text-base">eco</span>
+              Modern Closed-Loop Relevance
+            </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Contemporary UAE agritech mirrors Falaj stewardship: gravity-assisted drip grids, subterranean soil sensors, and closed-loop hydroponic reservoirs in desert greenhouses optimize every droplet—reimagining ancient gravity distribution for modern water security.
+            </p>
+</div>
+</div>
+<!-- Embedded Micro-Quiz: "Test Your Knowledge" -->
+<div class="p-space-lg rounded-xl bg-surface-container-high flex flex-col gap-space-md shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary">quiz</span>
+<span class="font-label-hud text-label-hud uppercase text-on-surface font-bold">Ranger Field Verification Quiz</span>
+</div>
+<span class="px-space-sm py-1 rounded bg-surface-container-highest text-tertiary font-label-hud text-label-hud font-bold">+150 XP Bounty</span>
+</div>
+<div class="space-y-space-xs">
+<span class="font-label-hud-micro text-label-hud-micro uppercase text-secondary font-bold">Knowledge Checkpoint</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold">How does the traditional Falaj system distribute water across desert terrain without mechanical pumps?</h4>
+</div>
+<!-- Options Set -->
+<div class="flex flex-col gap-space-xs" id="quizOptionsContainer">
+<!-- Option A (Correct) -->
+<button class="quiz-option text-left p-space-md rounded-lg bg-surface-container hover:bg-surface-bright flex items-center justify-between gap-space-sm transition-all group" id="optionA" onclick="selectQuizOption('A')" type="button">
+<div class="flex items-center gap-space-md">
+<span class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center font-label-hud text-label-hud text-on-surface group-hover:text-primary">A</span>
+<span class="font-body-md text-body-md text-on-surface">Harnessing natural gravity and underground slope channels (Aflaj)</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-base opacity-0 group-hover:opacity-100 transition-opacity">radio_button_unchecked</span>
+</button>
+<!-- Option B -->
+<button class="quiz-option text-left p-space-md rounded-lg bg-surface-container hover:bg-surface-bright flex items-center justify-between gap-space-sm transition-all group" id="optionB" onclick="selectQuizOption('B')" type="button">
+<div class="flex items-center gap-space-md">
+<span class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center font-label-hud text-label-hud text-on-surface group-hover:text-primary">B</span>
+<span class="font-body-md text-body-md text-on-surface">Windmill-driven suction pipes with animal traction</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-base opacity-0 group-hover:opacity-100 transition-opacity">radio_button_unchecked</span>
+</button>
+<!-- Option C -->
+<button class="quiz-option text-left p-space-md rounded-lg bg-surface-container hover:bg-surface-bright flex items-center justify-between gap-space-sm transition-all group" id="optionC" onclick="selectQuizOption('C')" type="button">
+<div class="flex items-center gap-space-md">
+<span class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center font-label-hud text-label-hud text-on-surface group-hover:text-primary">C</span>
+<span class="font-body-md text-body-md text-on-surface">Solar electric groundwater extraction wells</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-base opacity-0 group-hover:opacity-100 transition-opacity">radio_button_unchecked</span>
+</button>
+</div>
+<!-- Interactive Feedback Message (reveals upon click) -->
+<div class="hidden p-space-md rounded-lg bg-on-primary-container text-on-surface flex flex-col md:flex-row items-start md:items-center justify-between gap-space-sm transition-all" id="quizFeedback">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary flex-shrink-0">
+<span class="material-symbols-outlined text-lg font-bold">check</span>
+</div>
+<div class="space-y-0.5">
+<span class="font-label-hud text-label-hud uppercase text-primary font-bold block">Correct! +150 XP Awarded</span>
+<p class="font-body-sm text-body-sm text-on-surface">Falaj systems have preserved oasis agriculture for over 3,000 years through sheer hydrological geometry.</p>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-highest px-space-sm py-1 rounded font-label-hud-micro text-label-hud-micro uppercase text-secondary font-bold">
+<span class="material-symbols-outlined text-sm">bolt</span>
+              Ranger Lvl 14 Boosted
+            </div>
+</div>
+</div>
+</div>
+<!-- Modal Bottom Actions -->
+<div class="p-space-lg bg-surface-container flex flex-col sm:flex-row items-center justify-between gap-space-sm flex-shrink-0">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-hud-micro text-label-hud-micro uppercase">
+<span class="material-symbols-outlined text-sm">verified</span>
+          Documented by Emirates Cultural &amp; Environmental Authority
+        </div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial px-space-lg py-2.5 rounded-full bg-surface-container-high text-on-surface hover:bg-surface-bright font-label-hud text-label-hud uppercase font-bold transition-colors" onclick="closeFalajModal()" type="button">Close View</button>
+<button class="flex-1 sm:flex-initial px-space-xl py-2.5 rounded-full bg-primary text-on-primary font-label-hud text-label-hud uppercase font-bold hover:bg-primary-fixed transition-all shadow-md flex items-center justify-center gap-space-xs" id="claimXpBtn" onclick="claimFalajXP()" type="button">
+<span class="material-symbols-outlined text-base">military_tech</span>
+            Claim XP &amp; Close
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Client-side Interactive Logic -->
+<script>
+    // Category Filtering Logic
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const cards = document.querySelectorAll('.landmark-card');
+    const searchInput = document.getElementById('landmarkSearch');
+
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => {
+          p.classList.remove('bg-primary', 'text-on-primary');
+          p.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+        });
+        pill.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+        pill.classList.add('bg-primary', 'text-on-primary');
+
+        const filter = pill.getAttribute('data-filter');
+        applyFilters(filter, searchInput.value.toLowerCase());
+      });
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      const activePill = document.querySelector('.filter-pill.bg-primary');
+      const filter = activePill ? activePill.getAttribute('data-filter') : 'all';
+      applyFilters(filter, e.target.value.toLowerCase());
+    });
+
+    function applyFilters(category, term) {
+      cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        const textContent = card.innerText.toLowerCase();
+        const matchesCategory = (category === 'all') || (cardCategory === category);
+        const matchesSearch = textContent.includes(term);
+
+        if (matchesCategory && matchesSearch) {
+          card.classList.remove('hidden');
+          card.classList.add('flex');
+        } else {
+          card.classList.add('hidden');
+          card.classList.remove('flex');
+        }
+      });
+    }
+
+    // View Switching Logic (Grid vs Map View)
+    const viewGridBtn = document.getElementById('viewGridBtn');
+    const viewMapBtn = document.getElementById('viewMapBtn');
+    const landmarkGrid = document.getElementById('landmarkGrid');
+    const biosphereMapView = document.getElementById('biosphereMapView');
+
+    viewGridBtn.addEventListener('click', () => {
+      viewGridBtn.classList.add('bg-primary-container', 'text-on-primary-container', 'font-bold');
+      viewGridBtn.classList.remove('text-on-surface-variant');
+      viewMapBtn.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-bold');
+      viewMapBtn.classList.add('text-on-surface-variant');
+      landmarkGrid.classList.remove('hidden');
+      biosphereMapView.classList.add('hidden');
+      biosphereMapView.classList.remove('flex');
+    });
+
+    viewMapBtn.addEventListener('click', () => {
+      viewMapBtn.classList.add('bg-primary-container', 'text-on-primary-container', 'font-bold');
+      viewMapBtn.classList.remove('text-on-surface-variant');
+      viewGridBtn.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-bold');
+      viewGridBtn.classList.add('text-on-surface-variant');
+      landmarkGrid.classList.add('hidden');
+      biosphereMapView.classList.remove('hidden');
+      biosphereMapView.classList.add('flex');
+    });
+
+    // Modal Control Functions
+    const modal = document.getElementById('falajModal');
+
+    function openFalajModal() {
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeFalajModal() {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Micro-Quiz Interaction Logic
+    let quizCompleted = false;
+
+    function selectQuizOption(choice) {
+      const optionA = document.getElementById('optionA');
+      const optionB = document.getElementById('optionB');
+      const optionC = document.getElementById('optionC');
+      const feedback = document.getElementById('quizFeedback');
+      const claimBtn = document.getElementById('claimXpBtn');
+
+      if (choice === 'A') {
+        // Correct Choice
+        optionA.className = 'quiz-option text-left p-space-md rounded-lg bg-on-primary-container text-on-surface flex items-center justify-between gap-space-sm shadow-md transition-all';
+        optionA.querySelector('.material-symbols-outlined').textContent = 'check_circle';
+        optionA.querySelector('.material-symbols-outlined').className = 'material-symbols-outlined text-primary text-base opacity-100';
+
+        optionB.className = 'quiz-option text-left p-space-md rounded-lg bg-surface-container opacity-50 cursor-not-allowed flex items-center justify-between gap-space-sm';
+        optionC.className = 'quiz-option text-left p-space-md rounded-lg bg-surface-container opacity-50 cursor-not-allowed flex items-center justify-between gap-space-sm';
+        
+        feedback.classList.remove('hidden');
+        feedback.classList.add('flex');
+        quizCompleted = true;
+      } else {
+        // Wrong Choice
+        const targetBtn = choice === 'B' ? optionB : optionC;
+        targetBtn.className = 'quiz-option text-left p-space-md rounded-lg bg-error-container text-on-surface flex items-center justify-between gap-space-sm transition-all';
+        targetBtn.querySelector('.material-symbols-outlined').textContent = 'cancel';
+        targetBtn.querySelector('.material-symbols-outlined').className = 'material-symbols-outlined text-error text-base opacity-100';
+      }
+    }
+
+    function claimFalajXP() {
+      closeFalajModal();
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest/90 backdrop-blur-md mt-auto"><div class="w-full px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start pb-space-lg"><div class="md:col-span-5 space-y-space-sm"><div class="flex items-center gap-space-sm"><img alt="EcoPulse Master Emblem" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XshwQcJAVyaASIBMiQKhwkajiazM4RhzT1EkIVSy-YJqZ96fAu_lHaebrmITxSeVRi2PfR7R5EL1N0Mr-c7EcWvwMxXEcPbkDFie5p3XPqCVzHnFvH36Wdj-OGLQM1evwrClSjvbGVV5AYze7-R0Kym_4_wgKquvStyWm5Gxx28rijkPH8iyHLumvl_3BDgYrDxW-005iJMspVjP1mp01zWlvWYLLQrr8vaXl3FJSK8rhbTpkLTcZp2Bk"/><span class="font-headline-sm text-headline-sm text-on-surface font-bold">EcoPulse</span><span class="px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-label-hud-micro text-label-hud-micro uppercase">v4.2</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">Synthesizing planetary biosensors, high-performance telemetry, and gamified environmental action to accelerate global carbon drawdown initiatives.</p><div class="flex items-center gap-space-xs pt-space-xs"><span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span><span class="font-label-hud text-label-hud text-on-surface-variant uppercase tracking-wider">Sensors Live • 99.8% Grid Sync</span></div></div><div class="md:col-span-4 flex gap-space-xl"><div class="space-y-space-xs"><div class="font-label-hud text-label-hud uppercase tracking-wider text-on-surface font-bold">Modules</div><div class="flex flex-col space-y-1 font-body-sm text-body-sm text-on-surface-variant"><a class="hover:text-primary transition-colors" href="#">Carbon Audits</a><a class="hover:text-primary transition-colors" href="#">Telemetry Feed</a><a class="hover:text-primary transition-colors" href="#">Eco Quests</a><a class="hover:text-primary transition-colors" href="#">Flora Index</a></div></div><div class="space-y-space-xs"><div class="font-label-hud text-label-hud uppercase tracking-wider text-on-surface font-bold">Governance</div><div class="flex flex-col space-y-1 font-body-sm text-body-sm text-on-surface-variant"><a class="hover:text-primary transition-colors" href="#">Telemetry API</a><a class="hover:text-primary transition-colors" href="#">IDCC Protocol</a><a class="hover:text-primary transition-colors" href="#">Climate Trust</a><a class="hover:text-primary transition-colors" href="#">Privacy Node</a></div></div></div><div class="md:col-span-3 flex md:justify-end items-start"><button class="group flex items-center gap-space-xs px-space-md py-space-sm rounded-full bg-surface-container-high hover:bg-surface-container-highest transition-all shadow-[0_1px_8px_rgba(0,0,0,0.2)]" onclick="window.scrollTo({top:0,behavior:'smooth'})" type="button"><span class="font-label-hud text-label-hud uppercase text-on-surface-variant group-hover:text-on-surface transition-colors">Top of Grid</span><span class="material-symbols-outlined text-lg text-primary group-hover:-translate-y-0.5 transition-transform">arrow_upward</span></button></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm font-body-sm text-body-sm text-on-surface-variant"><p>© 2026 EcoPulse Biosphere Initiative. Accredited IDCC Global Node.</p><p class="font-label-hud-micro text-label-hud-micro uppercase tracking-wider text-outline">Obsidian Bio-Telemetry v4.2.1 • All Satellites Nominal</p></div></div></footer></body></html>
